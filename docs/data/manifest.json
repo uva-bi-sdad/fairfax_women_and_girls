@@ -1,0 +1,32 @@
+{
+  "uva-bi-sdad/sdc.demographics": {
+    "repository": "uva-bi-sdad/sdc.demographics",
+    "files": {
+      "Gender/data/distribution/va059_hsrpdsdzc_sdad_20132019_gender_demographics.csv.xz": {
+        "size": 30064,
+        "sha": "33b6ffa76b7a6469eb30b3f8a374273310856ad3",
+        "md5": "4d4da5f66d2b00dce702c805aa6e264f"
+      },
+      "Cooperative extension/data/distribution/va_cttr_2010_2021_perc_male.csv.xz": {
+        "size": 460256,
+        "sha": "781d6d977d1b4ccc48f90e89160ebd1109cecfe0",
+        "md5": "b1627d7b2a32b740218e057abcd659da"
+      },
+      "Gender/data/distribution/va_trctbg_acs_20092020_gender_demographics.csv.xz": {
+        "size": 2391576,
+        "sha": "8c2f5d468eb99a465e06757c25000b5c6b17fc64",
+        "md5": "68b98f70617530dc9cbde9e2197b7957"
+      },
+      "Gender/data/distribution/va013_civic_sdad_20132020_gender_demographics.csv.xz": {
+        "size": 25764,
+        "sha": "d04809277b7e38b15126629f50e4b3a2eaf461f9",
+        "md5": "731236ed1b938754be71cfdc6db6d291"
+      },
+      "Gender/data/distribution/ncr_trctbg_acs_20092020_gender_demographics.csv.xz": {
+        "size": 1518948,
+        "sha": "9ec72e5d0252fa1fb7cea15b8c582da7d1ad5471",
+        "md5": "7d2ea5147b1c6ab418b93e081f4f8d3f"
+      }
+    }
+  }
+}
