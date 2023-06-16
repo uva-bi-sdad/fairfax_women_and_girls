@@ -12,8 +12,8 @@ data_add(
 #    civic_association = "civic_association.csv.xz",
     "human_services_region" = "human_services_region.csv.xz",
     "planning_district" = "planning_district.csv.xz",
-    "supervisor_district" = "supervisor_district.csv.xz"#,
- #   "zip_code" = "zip_code.csv.xz"
+    "supervisor_district" = "supervisor_district.csv.xz",
+    "zip_code" = "zip_code.csv.xz"
   ),
   list(
     ids = list(

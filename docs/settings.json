@@ -28,9 +28,9 @@
   "metadata": {
     "url": "",
     "package": "data/datapackage.json",
-    "datasets": ["block_group", "tract", "planning_district", "supervisor_district", "human_services_region", "county"],
+    "datasets": ["block_group", "tract", "planning_district", "supervisor_district", "human_services_region", "county", "zip_code"],
     "variables": {},
-    "files": ["block_group.csv.xz", "tract.csv.xz", "planning_district.csv.xz", "supervisor_district.csv.xz", "human_services_region.csv.xz", "county.csv.xz"]
+    "files": ["block_group.csv.xz", "tract.csv.xz", "planning_district.csv.xz", "supervisor_district.csv.xz", "human_services_region.csv.xz", "county.csv.xz", "zip_code.csv.xz"]
   },
   "rules": [
     {

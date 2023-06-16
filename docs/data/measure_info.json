@@ -1,4 +1,203 @@
 {
+  "median_household_income": {
+    "category": "Financial Well Being",
+    "citations": "",
+    "data_type": "integer",
+    "equity_category": "Status",
+    "layer": "",
+    "long_description": "Self-reported median household income in the past 12 months (in 2019 inflation adjusted-dollars. Based on the American Community Survey Table B19013 ACS 2015/2019 5-year estimates. The equation $a_{i} = b^\\frac{c}{d}$ was used.",
+    "long_name": "Median household income",
+    "measure_type": "count",
+    "short_description": "Self-reported median household income in the past 12 months (in 2019 inflation adjusted-dollars.",
+    "short_name": "Median household income",
+    "sources": [
+      {
+        "date_accessed": 2022,
+        "name": "American Community Survey",
+        "location": "Table B19013",
+        "url": "https://www.census.gov/programs-surveys/acs"
+      }
+    ],
+    "statement": "The median household income in {features.name} is {value} per year.",
+    "type": "dollar",
+    "unit": "dollars"
+  },
+  "perc_veteran": {
+    "category": "Demographics",
+    "citations": "",
+    "data_type": "numeric",
+    "equity_category": "Status",
+    "layer": "",
+    "long_description": "The Veteran population percent. Based on American Community Survey ACS 2015/2019 5-year estimates Table B21001.",
+    "long_name": "Veteran population (percent)",
+    "measure_type": "percentage",
+    "short_description": "The Veteran population population percent. Based on American Community Survey ACS 2015/2019 5-year estimates.",
+    "short_name": "Veteran population",
+    "sources": [
+      {
+        "name": "American Community Survey Table B01001",
+        "date_accessed": 2021,
+        "url": "https://www.census.gov/programs-surveys/acs.html"
+      }
+    ],
+    "statement": "The Veteran population is {value} in {features.name}.",
+    "type": "percent",
+    "unit": ""
+  },
+  "perc_two_or_more": {
+    "category": "Demographics",
+    "citations": "",
+    "data_type": "numeric",
+    "equity_category": "Status",
+    "layer": "",
+    "long_description": "The two or more races population percent. Based on American Community Survey ACS 2015/2019 5-year estimates Table B01001.",
+    "long_name": "Two or more races population (percent)",
+    "measure_type": "percentage",
+    "short_description": "The two or more races population percent. Based on American Community Survey ACS 2015/2019 5-year estimates.",
+    "short_name": "Two or more races population",
+    "sources": [
+      {
+        "name": "American Community Survey Table B01001",
+        "date_accessed": 2021,
+        "url": "https://www.census.gov/programs-surveys/acs.html"
+      }
+    ],
+    "statement": "The two or more races population is {value} in {features.name}.",
+    "type": "percent",
+    "unit": ""
+  },
+  "perc_other": {
+    "category": "Demographics",
+    "citations": "",
+    "data_type": "numeric",
+    "equity_category": "Status",
+    "layer": "",
+    "long_description": "The Other racial population percent. Based on American Community Survey ACS 2015/2019 5-year estimates Table B01001.",
+    "long_name": "Other racial population (percent)",
+    "measure_type": "percentage",
+    "short_description": "The Other racial population population percent. Based on American Community Survey ACS 2015/2019 5-year estimates.",
+    "short_name": "Other racial population",
+    "sources": [
+      {
+        "name": "American Community Survey Table B01001",
+        "date_accessed": 2021,
+        "url": "https://www.census.gov/programs-surveys/acs.html"
+      }
+    ],
+    "statement": "The Other racial population is {value} in {features.name}.",
+    "type": "percent",
+    "unit": ""
+  },
+  "perc_hispanic_or_latino": {
+    "category": "Demographics",
+    "citations": "",
+    "data_type": "numeric",
+    "equity_category": "Status",
+    "layer": "",
+    "long_description": "The Hispanic/Latino population percent. Based on American Community Survey ACS 2015/2019 5-year estimates Table B01001.",
+    "long_name": "Hispanic/Latino population (percent)",
+    "measure_type": "percentage",
+    "short_description": "The Hispanic/Latino population population percent. Based on American Community Survey ACS 2015/2019 5-year estimates.",
+    "short_name": "Hispanic/Latino population",
+    "sources": [
+      {
+        "name": "American Community Survey Table B01001",
+        "date_accessed": 2021,
+        "url": "https://www.census.gov/programs-surveys/acs.html"
+      }
+    ],
+    "statement": "The Hispanic/Latino population is {value} in {features.name}.",
+    "type": "percent",
+    "unit": ""
+  },
+  "perc_wht_alone": {
+    "category": "Demographics",
+    "citations": "",
+    "data_type": "numeric",
+    "equity_category": "Status",
+    "layer": "",
+    "long_description": "The White population percent. Based on American Community Survey ACS 2015/2019 5-year estimates Table B01001.",
+    "long_name": "White population (percent)",
+    "measure_type": "percentage",
+    "short_description": "The White population population percent. Based on American Community Survey ACS 2015/2019 5-year estimates.",
+    "short_name": "White population",
+    "sources": [
+      {
+        "name": "American Community Survey Table B01001",
+        "date_accessed": 2021,
+        "url": "https://www.census.gov/programs-surveys/acs.html"
+      }
+    ],
+    "statement": "The White population is {value} in {features.name}.",
+    "type": "percent",
+    "unit": ""
+  },
+  "perc_AAPI": {
+    "category": "Demographics",
+    "citations": "",
+    "data_type": "numeric",
+    "equity_category": "Status",
+    "layer": "",
+    "long_description": "The Asian American/Pacific Islander population percent. Based on American Community Survey ACS 2015/2019 5-year estimates Table B01001.",
+    "long_name": "Asian American/Pacific Islander population (percent)",
+    "measure_type": "percentage",
+    "short_description": "The Asian American/Pacific Islander population population percent. Based on American Community Survey ACS 2015/2019 5-year estimates.",
+    "short_name": "Asian American/Pacific Islander population",
+    "sources": [
+      {
+        "name": "American Community Survey Table B01001",
+        "date_accessed": 2021,
+        "url": "https://www.census.gov/programs-surveys/acs.html"
+      }
+    ],
+    "statement": "The Asian American/Pacific Islander population is {value} in {features.name}.",
+    "type": "percent",
+    "unit": ""
+  },
+  "perc_native_alone": {
+    "category": "Demographics",
+    "citations": "",
+    "data_type": "numeric",
+    "equity_category": "Status",
+    "layer": "",
+    "long_description": "The Native population percent. Based on American Community Survey ACS 2015/2019 5-year estimates Table B01001.",
+    "long_name": "Native population (percent)",
+    "measure_type": "percentage",
+    "short_description": "The Native population population percent. Based on American Community Survey ACS 2015/2019 5-year estimates.",
+    "short_name": "Native population",
+    "sources": [
+      {
+        "name": "American Community Survey Table B01001",
+        "date_accessed": 2021,
+        "url": "https://www.census.gov/programs-surveys/acs.html"
+      }
+    ],
+    "statement": "The Native population is {value} in {features.name}.",
+    "type": "percent",
+    "unit": ""
+  },
+  "perc_afr_amer_alone": {
+    "category": "Demographics",
+    "citations": "",
+    "data_type": "numeric",
+    "equity_category": "Status",
+    "layer": "",
+    "long_description": "The Black population percent. Based on American Community Survey ACS 2015/2019 5-year estimates Table B01001.",
+    "long_name": "Black population (percent)",
+    "measure_type": "percentage",
+    "short_description": "The Black population population percent. Based on American Community Survey ACS 2015/2019 5-year estimates.",
+    "short_name": "Black population",
+    "sources": [
+      {
+        "name": "American Community Survey Table B01001",
+        "date_accessed": 2021,
+        "url": "https://www.census.gov/programs-surveys/acs.html"
+      }
+    ],
+    "statement": "The Black population is {value} in {features.name}.",
+    "type": "percent",
+    "unit": ""
+  },
   "perc_female": {
     "category": "Demographics",
     "citations": "",
@@ -42,5 +241,935 @@
     "statement": "The male population is {value} in {features.name}.",
     "type": "percent",
     "unit": ""
+  },
+  "perc_pop_under_20": {
+    "category": "Demographics",
+    "citations": "",
+    "data_type": "numeric",
+    "equity_category": "Status",
+    "layer": "",
+    "long_description": "The percent of the population under age 20. Based on American Community Survey ACS 2015/2019 5-year estimates Table B01001.",
+    "long_name": "Under 20 population (percent)",
+    "measure_type": "percentage",
+    "short_description": "The percent of the population under age 20. Based on American Community Survey ACS 2015/2019 5-year estimates.",
+    "short_name": "Under 20 population",
+    "sources": [
+      {
+        "date_accessed": 2023,
+        "name": "American Community Survey Table B01001",
+        "url": "https://www.census.gov/programs-surveys/acs.html"
+      }
+    ],
+    "statement": "The percent of the population under age 20 is {value} in {features.name}.",
+    "type": "percent",
+    "unit": ""
+  },
+  "perc_pop_65_plus": {
+    "category": "Demographics",
+    "citations": "",
+    "data_type": "numeric",
+    "equity_category": "Status",
+    "layer": "",
+    "long_description": "The percent of the population over age 64. Based on American Community Survey ACS 2015/2019 5-year estimates Table B01001.",
+    "long_name": "65 plus population (percent)",
+    "measure_type": "percentage",
+    "short_description": "The percent of the population over age 64. Based on American Community Survey ACS 2015/2019 5-year estimates.",
+    "short_name": "65 plus population",
+    "sources": [
+      {
+        "date_accessed": 2023,
+        "name": "American Community Survey Table B01001",
+        "url": "https://www.census.gov/programs-surveys/acs.html"
+      }
+    ],
+    "statement": "The percent of the population over age 64 is {value} in {features.name}.",
+    "type": "percent",
+    "unit": ""
+  },
+  "perc_pop_20_64": {
+    "category": "Demographics",
+    "citations": "",
+    "data_type": "numeric",
+    "equity_category": "Status",
+    "layer": "",
+    "long_description": "The percent of the population between age 20 and 64. Based on American Community Survey ACS 2015/2019 5-year estimates Table B01001.",
+    "long_name": "20 to 64 population (percent)",
+    "measure_type": "percentage",
+    "short_description": "The percent of the population between age 20 and 64. Based on American Community Survey ACS 2015/2019 5-year estimates.",
+    "short_name": "20 to 64 population",
+    "sources": [
+      {
+        "date_accessed": 2023,
+        "name": "American Community Survey Table B01001",
+        "url": "https://www.census.gov/programs-surveys/acs.html"
+      }
+    ],
+    "statement": "The percent of the population between age 20 and 64 is {value} in {features.name}.",
+    "type": "percent",
+    "unit": ""
+  },
+  "rac_industry_other_services_female_perc": {
+    "aggregation_method": "percent",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the female workforce in other Service industry sectors. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
+    "long_name": "Home - Female workforce in other Service industry sectors",
+    "measure_type": "percent",
+    "short_description": "Percent of the female workforce in other Service industry sectors",
+    "short_name": "Home - Female workforce in other Service industry sectors",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the female workers living in {features.name} are in other Service industry sectors.",
+    "type": "",
+    "unit": "person"
+  },
+  "rac_industry_other_services_male_perc": {
+    "aggregation_method": "percent",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the male workforce in other Service industry sectors. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
+    "long_name": "Home - Male workforce in other Service industry sectors",
+    "measure_type": "percent",
+    "short_description": "Percent of the male workforce in other Service industry sectors",
+    "short_name": "Home - Male workforce in other Service industry sectors",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the male workers living in {features.name} are in other Service industry sectors.",
+    "type": "",
+    "unit": "person"
+  },
+  "rac_industry_trade_transporation_utilities_female_perc": {
+    "aggregation_method": "percent",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the female workforce in Trade, Transportation, and Utility industry sectors. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
+    "long_name": "Home - Female workforce in Trade, Transportation, and Utility industry sectors",
+    "measure_type": "percent",
+    "short_description": "Percent of the female workforce in Trade, Transportation, and Utility industry sectors",
+    "short_name": "Home - Female workforce in Trade, Transportation, and Utility industry sectors",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the female workers living in {features.name} are in Trade, Transportation, and Utility industry sectors.",
+    "type": "",
+    "unit": "person"
+  },
+  "rac_industry_trade_transporation_utilities_male_perc": {
+    "aggregation_method": "percent",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the male workforce in Trade, Transportation, and Utility industry sectors. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
+    "long_name": "Home - Male workforce in Trade, Transportation, and Utility industry sectors",
+    "measure_type": "percent",
+    "short_description": "Percent of the male workforce in Trade, Transportation, and Utility industry sectors",
+    "short_name": "Home - Male workforce in Trade, Transportation, and Utility industry sectors",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the male workers living in {features.name} are in Trade, Transportation, and Utility industry sectors.",
+    "type": "",
+    "unit": "person"
+  },
+  "rac_industry_goods_female_perc": {
+    "aggregation_method": "percent",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the female workforce in Goods Producing industry sectors. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
+    "long_name": "Home - Female workforce in Goods Producing industry sectors",
+    "measure_type": "percent",
+    "short_description": "Percent of the female workforce in Goods Producing industry sectors",
+    "short_name": "Home - Female workforce in Goods Producing industry sectors",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the female workers living in {features.name} are in Goods Producing industry sectors .",
+    "type": "",
+    "unit": "person"
+  },
+  "rac_industry_goods_male_perc": {
+    "aggregation_method": "percent",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the male workforce in Goods Producing industry sectors. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
+    "long_name": "Home - Male workforce in Goods Producing industry sectors",
+    "measure_type": "percent",
+    "short_description": "Percent of the male workforce in Goods Producing industry sectors",
+    "short_name": "Home - Male workforce in Goods Producing industry sectors",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the male workers living in {features.name} are in Goods Producing industry sectors.",
+    "type": "",
+    "unit": "person"
+  },
+  "rac_earnings_3334_and_over_female_perc": {
+    "aggregation_method": "percent",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the female workforce earning over $3,334 per month. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
+    "long_name": "Home - Female workforce earning over $3,334 per month",
+    "measure_type": "percent",
+    "short_description": "Percent of the female workforce earning over $3,334 per month",
+    "short_name": "Home - Female workforce earning over $3,334 per month",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the female workers living in {features.name} earn over $3,334 per month.",
+    "type": "",
+    "unit": "person"
+  },
+  "rac_earnings_3334_and_over_male_perc": {
+    "aggregation_method": "percent",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the male workforce earning over $3,334 per month. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
+    "long_name": "Home - Male workforce earning over $3,334 per month",
+    "measure_type": "percent",
+    "short_description": "Percent of the male workforce earning over $3,334 per month",
+    "short_name": "Home - Male workforce earning over $3,334 per month",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the male workers living in {features.name} earn over $3,334 per month.",
+    "type": "",
+    "unit": "person"
+  },
+  "rac_earnings_1251_to_3333_female_perc": {
+    "aggregation_method": "percent",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the female workforce earning $1,250 to 3,333 per month. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
+    "long_name": "Home - Female workforce earning $1,250 to $3,333 per month",
+    "measure_type": "percent",
+    "short_description": "Percent of the female workforce earning $1,250 to 3,333 per month",
+    "short_name": "Home - Female workforce earning $1,250 to $3,333 per month",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the female workers living in {features.name} earn $1,250 to $3,333 per month.",
+    "type": "",
+    "unit": "person"
+  },
+  "rac_earnings_1251_to_3333_male_perc": {
+    "aggregation_method": "percent",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the male workforce earning $1,250 to 3,333 per month. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
+    "long_name": "Home - Male workforce earning $1,250 to $3,333 per month",
+    "measure_type": "percent",
+    "short_description": "Percent of the male workforce earning $1,250 to 3,333 per month",
+    "short_name": "Home - Male workforce earning $1,250 to $3,333 per month",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the male workers living in {features.name} earn $1,250 to $3,333 per month.",
+    "type": "",
+    "unit": "person"
+  },
+  "rac_earnings_1250_and_under_female_perc": {
+    "aggregation_method": "percent",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the female workforce earning under $1,250 per month. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
+    "long_name": "Home - Female workforce earning under $1,250 per month",
+    "measure_type": "percent",
+    "short_description": "Percent of the female workforce earning under $1,250 per month",
+    "short_name": "Home - Female workforce earning under $1,250 per month",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the female workers living in {features.name} earn under $1,250 per month.",
+    "type": "",
+    "unit": "person"
+  },
+  "rac_earnings_1250_and_under_male_perc": {
+    "aggregation_method": "percent",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the male workforce earning under $1,250 per month. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
+    "long_name": "Home - Male workforce earning under $1,250 per month",
+    "measure_type": "percent",
+    "short_description": "Percent of the male workforce earning under $1,250 per month",
+    "short_name": "Home - Male workforce earning under $1,250 per month",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the male workers living in {features.name} earn under $1,250 per month.",
+    "type": "",
+    "unit": "person"
+  },
+  "rac_age_55_and_over_female_perc": {
+    "aggregation_method": "percent",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the female workforce over 55. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
+    "long_name": "Home - Female workforce over 55",
+    "measure_type": "percent",
+    "short_description": "Percent of the female workforce over 55",
+    "short_name": "Home - Female workforce over 55",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the female workers living in {features.name} are over 55.",
+    "type": "",
+    "unit": "person"
+  },
+  "rac_age_55_and_over_male_perc": {
+    "aggregation_method": "percent",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the male workforce over 55. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
+    "long_name": "Home - Male workforce over 55",
+    "measure_type": "percent",
+    "short_description": "Percent of the male workforce over 55",
+    "short_name": "Home - Male workforce over 55",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the male workers living in {features.name} are over 55.",
+    "type": "",
+    "unit": "person"
+  },
+  "rac_age_30_to_54_female_perc": {
+    "aggregation_method": "percent",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the female workforce 30 to 54. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
+    "long_name": "Home - Female workforce 30 to 54",
+    "measure_type": "percent",
+    "short_description": "Percent of the female workforce 30 to 54",
+    "short_name": "Home - Female workforce 30 to 54",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the female workers living in {features.name} are 30 to 54.",
+    "type": "",
+    "unit": "person"
+  },
+  "rac_age_30_to_54_male_perc": {
+    "aggregation_method": "percent",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the male workforce 30 to 54. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
+    "long_name": "Home - Male workforce 30 to 54",
+    "measure_type": "percent",
+    "short_description": "Percent of the male workforce 30 to 54",
+    "short_name": "Home - Male workforce 30 to 54",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the male workers are 30 to 54 living in {features.name}.",
+    "type": "",
+    "unit": "person"
+  },
+  "rac_age_29_and_under_female_perc": {
+    "aggregation_method": "percent",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the female workforce under 29. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
+    "long_name": "Home - Female workforce under 29",
+    "measure_type": "percent",
+    "short_description": "Percent of the female workforce under 29",
+    "short_name": "Home - Female workforce under 29",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the female workers living in {features.name} are under 29.",
+    "type": "",
+    "unit": "person"
+  },
+  "rac_age_29_and_under_male_perc": {
+    "aggregation_method": "percent",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the male workforce under 29. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
+    "long_name": "Home - Male workforce under 29",
+    "measure_type": "percent",
+    "short_description": "Percent of the male workforce under 29",
+    "short_name": "Home - Male workforce under 29",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the male workers living in {features.name} are under 29.",
+    "type": "",
+    "unit": "person"
+  },
+  "wac_industry_other_services_female_perc": {
+    "aggregation_method": "percent",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the female workforce in other Service industry sectors. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
+    "long_name": "Workplace - Female workforce in other Service industry sectors",
+    "measure_type": "percent",
+    "short_description": "Percent of the female workforce in other Service industry sectors",
+    "short_name": "Workplace - Female workforce in other Service industry sectors",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the female workers working in {features.name} are in other Service industry sectors.",
+    "type": "",
+    "unit": "person"
+  },
+  "wac_industry_other_services_male_perc": {
+    "aggregation_method": "percent",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the male workforce in other Service industry sectors. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
+    "long_name": "Workplace - Male workforce in other Service industry sectors",
+    "measure_type": "percent",
+    "short_description": "Percent of the male workforce in other Service industry sectors",
+    "short_name": "Workplace - Male workforce in other Service industry sectors",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the male workers working in {features.name} are in other Service industry sectors.",
+    "type": "",
+    "unit": "person"
+  },
+  "wac_industry_trade_transporation_utilities_female_perc": {
+    "aggregation_method": "percent",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the female workforce in Trade, Transportation, and Utility industry sectors. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
+    "long_name": "Workplace - Female workforce in Trade, Transportation, and Utility industry sectors",
+    "measure_type": "percent",
+    "short_description": "Percent of the female workforce in Trade, Transportation, and Utility industry sectors",
+    "short_name": "Workplace - Female workforce in Trade, Transportation, and Utility industry sectors",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the female workers working in {features.name} are in Trade, Transportation, and Utility industry sectors.",
+    "type": "",
+    "unit": "person"
+  },
+  "wac_industry_trade_transporation_utilities_male_perc": {
+    "aggregation_method": "percent",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the male workforce in Trade, Transportation, and Utility industry sectors. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
+    "long_name": "Workplace - Male workforce in Trade, Transportation, and Utility industry sectors",
+    "measure_type": "percent",
+    "short_description": "Percent of the male workforce in Trade, Transportation, and Utility industry sectors",
+    "short_name": "Workplace - Male workforce in Trade, Transportation, and Utility industry sectors",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the male workers working in {features.name} are in Trade, Transportation, and Utility industry sectors.",
+    "type": "",
+    "unit": "person"
+  },
+  "wac_industry_goods_female_perc": {
+    "aggregation_method": "percent",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the female workforce in Goods Producing industry sectors. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
+    "long_name": "Workplace - Female workforce in Goods Producing industry sectors",
+    "measure_type": "percent",
+    "short_description": "Percent of the female workforce in Goods Producing industry sectors",
+    "short_name": "Workplace - Female workforce in Goods Producing industry sectors",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the female workers working in {features.name} are in Goods Producing industry sectors.",
+    "type": "",
+    "unit": "person"
+  },
+  "wac_industry_goods_male_perc": {
+    "aggregation_method": "percent",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the male workforce in Goods Producing industry sectors. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
+    "long_name": "Workplace - Male workforce in Goods Producing industry sectors",
+    "measure_type": "percent",
+    "short_description": "Percent of the male workforce in Goods Producing industry sectors",
+    "short_name": "Workplace - Male workforce in Goods Producing industry sectors",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the male workers working in {features.name} are in Goods Producing industry sectors.",
+    "type": "",
+    "unit": "person"
+  },
+  "wac_earnings_3334_and_over_female_perc": {
+    "aggregation_method": "percent",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the female workforce earning over $3,334 per month. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
+    "long_name": "Workplace - Female workforce earning over $3,334 per month",
+    "measure_type": "percent",
+    "short_description": "Percent of the female workforce earning over $3,334 per month",
+    "short_name": "Workplace - Female workforce earning over $3,334 per month",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the female workers working in {features.name} earn over $3,334 per month.",
+    "type": "",
+    "unit": "person"
+  },
+  "wac_earnings_3334_and_over_male_perc": {
+    "aggregation_method": "percent",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the male workforce earning over $3,334 per month. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
+    "long_name": "Workplace - Male workforce earning over $3,334 per month",
+    "measure_type": "percent",
+    "short_description": "Percent of the male workforce earning over $3,334 per month",
+    "short_name": "Workplace - Male workforce earning over $3,334 per month",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the male workers working in {features.name} earn over $3,334 per month.",
+    "type": "",
+    "unit": "person"
+  },
+  "wac_earnings_1251_to_3333_female_perc": {
+    "aggregation_method": "percent",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the female workforce earning $1,250 to 3,333 per month. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
+    "long_name": "Workplace - Female workforce earning $1,250 to $3,333 per month",
+    "measure_type": "percent",
+    "short_description": "Percent of the female workforce earning $1,250 to 3,3330 per month",
+    "short_name": "Workplace - Female workforce earning $1,250 to $3,333 per month",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the female workers working in {features.name} earn $1,250 to $3,333 per month.",
+    "type": "",
+    "unit": "person"
+  },
+  "wac_earnings_1251_to_3333_male_perc": {
+    "aggregation_method": "percent",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the male workforce earning $1,250 to 3,333 per month. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
+    "long_name": "Workplace - Male workforce earning $1,250 to $3,333 per month",
+    "measure_type": "percent",
+    "short_description": "Percent of the male workforce earning $1,250 to 3,3330 per month",
+    "short_name": "Workplace - Male workforce earning $1,250 to $3,333 per month",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the male workers working in {features.name} earn $1,250 to $3,333 per month.",
+    "type": "",
+    "unit": "person"
+  },
+  "wac_earnings_1250_and_under_female_perc": {
+    "aggregation_method": "percent",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the female workforce earning under $1,250 per month. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
+    "long_name": "Workplace - Female workforce earning under $1,250 per month",
+    "measure_type": "percent",
+    "short_description": "Percent of the female workforce earning under $1,250 per month",
+    "short_name": "Workplace - Female workforce earning under $1,250 per month",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the female workers working  in {features.name} earn under $1,250 per month.",
+    "type": "",
+    "unit": "person"
+  },
+  "wac_earnings_1250_and_under_male_perc": {
+    "aggregation_method": "percent",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the male workforce earning under $1,250 per month. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
+    "long_name": "Workplace - Male workforce earning under $1,250 per month",
+    "measure_type": "percent",
+    "short_description": "Percent of the male workforce earning under $1,250 per month",
+    "short_name": "Workplace - Male workforce earning under $1,250 per month",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the male workers working in {features.name} earn under $1,250 per month.",
+    "type": "",
+    "unit": "person"
+  },
+  "wac_age_55_and_over_female_perc": {
+    "aggregation_method": "percent",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the female workforce over 55. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
+    "long_name": "Workplace - Female workforce over 55",
+    "measure_type": "percent",
+    "short_description": "Percent of the female workforce over 55",
+    "short_name": "Workplace - Female workforce over 55",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the female workers working in {features.name} are over 55.",
+    "type": "",
+    "unit": "person"
+  },
+  "wac_age_55_and_over_male_perc": {
+    "aggregation_method": "percent",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the male workforce over 55. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
+    "long_name": "Workplace - Male workforce over 55",
+    "measure_type": "percent",
+    "short_description": "Percent of the male workforce over 55",
+    "short_name": "Workplace - Male workforce over 55",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the male workers working in {features.name} are over 55.",
+    "type": "",
+    "unit": "person"
+  },
+  "wac_age_30_to_54_female_perc": {
+    "aggregation_method": "percent",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the female workforce 30 to 54. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
+    "long_name": "Workplace - Female workforce 30 to 54",
+    "measure_type": "percent",
+    "short_description": "Percent of the female workforce 30 to 54",
+    "short_name": "Workplace - Female workforce 30 to 54",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the female workers working in {features.name} are 30 to 54.",
+    "type": "",
+    "unit": "person"
+  },
+  "wac_age_30_to_54_male_perc": {
+    "aggregation_method": "percent",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the male workforce 30 to 54. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
+    "long_name": "Workplace - Male workforce 30 to 54",
+    "measure_type": "percent",
+    "short_description": "Percent of the male workforce 30 to 54",
+    "short_name": "Workplace - Male workforce 30 to 54",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the male workers working in {features.name} are 30 to 54.",
+    "type": "",
+    "unit": "person"
+  },
+  "wac_age_29_and_under_female_perc": {
+    "aggregation_method": "percent",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the female workforce under 29. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
+    "long_name": "Workplace - Female workforce under 29",
+    "measure_type": "percent",
+    "short_description": "Percent of the female workforce under 29",
+    "short_name": "Workplace - Female workforce under 29",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the female workers working in {features.name} are under 29.",
+    "type": "",
+    "unit": "person"
+  },
+  "wac_age_29_and_under_male_perc": {
+    "aggregation_method": "percent",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the male workforce under 29. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
+    "long_name": "Workplace - Male workforce under 29",
+    "measure_type": "percent",
+    "short_description": "Percent of the male workforce under 29",
+    "short_name": "Workplace - Male workforce under 29",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the male workers working in {features.name} are under 29.",
+    "type": "",
+    "unit": "person"
   }
 }
