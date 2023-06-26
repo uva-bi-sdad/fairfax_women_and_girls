@@ -41,7 +41,7 @@ page_navbar(
         )
       ),
       '<p class="section-heading">Map Options</p>',
-      input_switch("Show Point Overlay", default_on = TRUE, id = "settings.map_overlay"),
+#      input_switch("Show Point Overlay", default_on = TRUE, id = "settings.map_overlay"),
       input_switch("Show Background Shapes", default_on = TRUE, id = "settings.background_shapes"),
       input_switch("Background Shapes On Top", default_on = TRUE, id = "settings.background_top"),
       input_select(
@@ -57,14 +57,14 @@ page_navbar(
         "Background Outline Weight", "settings.background_polygon_outline", default = 2,
         step = .5, floating_label = FALSE
       ),
-      input_number(
-        "Overlay Circle Size", "settings.circle_radius", default = 5, step = 1, floating_label = FALSE,
-        note = "Radius of the circles that are parts of overlays."
-      ),
-      input_select(
-        "Overlay Circle Property", "overlay_properties", id = "settings.circle_property", floating_label = FALSE,
-        note = "Property to adjust circle size by."
-      ),
+#      input_number(
+#        "Overlay Circle Size", "settings.circle_radius", default = 5, step = 1, floating_label = FALSE,
+#        note = "Radius of the circles that are parts of overlays."
+#      ),
+#      input_select(
+#        "Overlay Circle Property", "overlay_properties", id = "settings.circle_property", floating_label = FALSE,
+#        note = "Property to adjust circle size by."
+#      ),
       '<p class="section-heading">Plot Options</p>',
       input_select("Plot Type", c("scatter", "scattergl", "bar"), "scatter", id = "plot_type", floating_label = FALSE),
       input_switch("Box Plots", default_on = TRUE, id = "settings.boxplots"),
@@ -115,7 +115,7 @@ page_menu(
   input_select("Starting Layer", c(
     "county", "tract", "block_group", "supervisor_district",
     "planning_district", "human_services_region", "zip_code"
-  ), 0, id = "shape_type"),
+  ), 1, id = "shape_type"),
   page_section(
     type = "row form-row",
     wraps = "row",
@@ -240,76 +240,6 @@ page_section(
           )
         }
       }), recursive = FALSE),
-      overlays = {
-        layers <- lapply(2013:2020, function(year) list(
-          url = paste0("https://raw.githubusercontent.com/uva-bi-sdad/dc.education/main/docs/points_", year, ".geojson"),
-          time = year
-        ))
-        hospital_layer <- list(list(
-          url = "https://raw.githubusercontent.com/uva-bi-sdad/dc.hifld.hosp/master/docs/points_2020.geojson",
-          time = 2020
-        ))
-        c(
-          list(
-            list(
-              variable = "hhs:hospitals_per_100k",
-              source = hospital_layer
-            ),
-            list(
-              variable = "hhs:hospitals_min_drivetime",
-              source = hospital_layer
-            ),
-            list(
-              variable = "hhs:intensive_care_per_100k",
-              source = hospital_layer,
-              filter = list(feature = "total_icu_beds_7_day_avg", operator = "!=", value = 0)
-            ),
-            list(
-              variable = "hhs:intensive_care_min_drivetime",
-              source = hospital_layer,
-              filter = list(feature = "total_icu_beds_7_day_avg", operator = "!=", value = 0)
-            ),
-            list(
-              variable = "hhs:childrens_hospitals_per_100k",
-              source = hospital_layer,
-              filter = list(feature = "hospital_subtype", operator = "=", value = "Childrens Hospitals")
-            ),
-            list(
-              variable = "hhs:childrens_hospitals_min_drivetime",
-              source = hospital_layer,
-              filter = list(feature = "hospital_subtype", operator = "=", value = "Childrens Hospitals")
-            ),
-            list(
-              variable = "nces:schools_2year_per_100k",
-              source = layers,
-              filter = list(feature = "ICLEVEL", operator = "=", value = 2)
-            ),
-            list(
-              variable = "nces:schools_under2year_per_100k",
-              source = layers,
-              filter = list(feature = "ICLEVEL", operator = "=", value = 3)
-            ),
-            list(
-              variable = "nces:schools_2year_min_drivetime",
-              source = layers,
-              filter = list(feature = "ICLEVEL", operator = "=", value = 2)
-            ),
-            list(
-              variable = "nces:schools_under2year_min_drivetime",
-              source = layers,
-              filter = list(feature = "ICLEVEL", operator = "=", value = 3)
-            )
-          ),
-          lapply(c("biomedical", "computer", "engineering", "physical", "science"), function(p) list(
-            variable = paste0("nces:schools_2year_with_", p, "_program_per_100k"),
-            source = layers,
-            filter = list(
-              list(feature = "ICLEVEL", operator = "=", value = 2),
-              list(feature = p, operator = "=", value = 1)
-            )
-          ))
-        )
-      },
       dataview = "primary_view",
       click = "region_select",
       id = "main_map",
