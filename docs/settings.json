@@ -29,8 +29,6 @@
     "url": "",
     "package": "data/datapackage.json",
     "datasets": ["block_group", "tract", "planning_district", "supervisor_district", "human_services_region", "county"],
-    "variables": {},
-    "entity_info": {},
     "files": ["block_group.csv.xz", "tract.csv.xz", "planning_district.csv.xz", "supervisor_district.csv.xz", "human_services_region.csv.xz", "county.csv.xz"]
   },
   "rules": [
@@ -39,8 +37,7 @@
         {
           "id": "selected_tract",
           "type": "!",
-          "value": "",
-          "any": false
+          "value": ""
         }
       ],
       "effects": {
@@ -71,8 +68,7 @@
         {
           "id": "selected_tract",
           "type": "!",
-          "value": "",
-          "any": false
+          "value": ""
         }
       ],
       "effects": {
@@ -89,14 +85,12 @@
             {
               "id": "selected_county",
               "type": "",
-              "value": "",
-              "any": false
+              "value": ""
             },
             {
               "id": "shape_type",
               "type": "=",
-              "value": "county",
-              "any": false
+              "value": "county"
             }
           ],
           "value": "tract"
@@ -106,8 +100,7 @@
             {
               "id": "selected_tract",
               "type": "",
-              "value": "",
-              "any": false
+              "value": ""
             }
           ],
           "value": "block_group"
@@ -132,15 +125,13 @@
             {
               "id": "shapes",
               "type": "=",
-              "value": "county",
-              "any": false
+              "value": "county"
             }
           ],
           "value": "selected_county"
         }
       ],
-      "default": "selected_tract",
-      "display": []
+      "default": "selected_tract"
     },
     {
       "id": "selected_region",
@@ -150,15 +141,13 @@
             {
               "id": "selected_tract",
               "type": "",
-              "value": "",
-              "any": false
+              "value": ""
             }
           ],
           "value": "selected_tract"
         }
       ],
-      "default": "selected_county",
-      "display": []
+      "default": "selected_county"
     },
     {
       "id": "set_palette",
@@ -168,15 +157,13 @@
             {
               "id": "settings.color_by_order",
               "type": "",
-              "value": "",
-              "any": false
+              "value": ""
             }
           ],
           "value": "lajolla"
         }
       ],
-      "default": "vik",
-      "display": []
+      "default": "vik"
     },
     {
       "id": "tract_subset",
@@ -186,15 +173,13 @@
             {
               "id": "selected_county",
               "type": "",
-              "value": "",
-              "any": false
+              "value": ""
             }
           ],
           "value": "siblings"
         }
       ],
-      "default": "full_filter",
-      "display": []
+      "default": "full_filter"
     }
   ],
   "dataviews": {
@@ -212,14 +197,10 @@
   "info": {
     "variable_info_pane": {
       "title": "variables.short_name",
-      "body": [],
-      "default": [],
-      "floating": false,
       "dataview": "primary_view",
-      "variable_info": false
+      "variable_info": true
     },
     "info11": {
-      "title": "",
       "body": [
         {
           "name": "",
@@ -227,10 +208,8 @@
           "style": "table"
         }
       ],
-      "default": [],
-      "floating": false,
       "dataview": "primary_view",
-      "variable_info": false
+      "variable_info": true
     },
     "info12": {
       "title": "Filters",
@@ -241,25 +220,20 @@
           "style": "table"
         }
       ],
-      "default": [],
-      "floating": false,
       "dataview": "primary_view",
-      "variable_info": false
+      "variable_info": true
     },
     "info13": {
       "title": "features.name",
-      "body": [],
       "default": {
         "title": "National Capital Region",
         "body": "Hover over or select a region for more information."
       },
-      "floating": false,
       "dataview": "primary_view",
       "subto": ["main_map", "main_plot", "rank_table", "main_legend"],
-      "variable_info": false
+      "variable_info": true
     },
     "info14": {
-      "title": "",
       "body": [
         {
           "name": "variables.long_name",
@@ -272,11 +246,8 @@
           "style": "table"
         }
       ],
-      "default": [],
-      "floating": false,
       "dataview": "primary_view",
-      "subto": ["main_map", "main_plot", "rank_table", "main_legend"],
-      "variable_info": false
+      "subto": ["main_map", "main_plot", "rank_table", "main_legend"]
     }
   },
   "text": {
@@ -299,8 +270,7 @@
             {
               "id": "selected_county",
               "type": "",
-              "value": "",
-              "any": false
+              "value": ""
             }
           ],
           "button": {
@@ -320,8 +290,7 @@
             {
               "id": "selected_tract",
               "type": "",
-              "value": "",
-              "any": false
+              "value": ""
             }
           ],
           "text": [" > ", "selected_tract"]
@@ -337,8 +306,7 @@
               {
                 "id": "default",
                 "type": "",
-                "value": "",
-                "any": false
+                "value": ""
               }
             ]
           },
@@ -348,8 +316,7 @@
               {
                 "id": "selected_region",
                 "type": "",
-                "value": "",
-                "any": false
+                "value": ""
               }
             ]
           }
@@ -376,14 +343,12 @@
   "button": {
     "DownloadAllData": {
       "effects": "export",
-      "dataview": {},
       "query": {
         "features": {
           "geoid": "id",
           "name": "name"
         }
-      },
-      "api": false
+      }
     },
     "Download": {
       "effects": "export",
@@ -396,8 +361,7 @@
         },
         "table_format": "export_table_format",
         "file_format": "export_file_format"
-      },
-      "api": false
+      }
     },
     "CopyAPIlink": {
       "effects": "copy",
@@ -411,8 +375,7 @@
         },
         "table_format": "export_table_format",
         "file_format": "export_file_format"
-      },
-      "api": false
+      }
     }
   },
   "datatable": {
@@ -541,7 +504,6 @@
           "id_property": "geoid"
         }
       ],
-      "overlays": {},
       "options": {
         "attributionControl": false,
         "scrollWheelZoom": false,
@@ -561,8 +523,7 @@
           "url": "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
         }
       }
-    },
-    "_raw": []
+    }
   },
   "legend": {
     "main_legend": {
@@ -574,7 +535,7 @@
     "bootstrap": {
       "name": "Bootstrap",
       "url": "https://getbootstrap.com",
-      "version": "5.3.0"
+      "version": "5.3.1"
     },
     "colorbrewer": {
       "name": "ColorBrewer",
@@ -609,12 +570,12 @@
     "datatables": {
       "name": "DataTables",
       "url": "https://datatables.net",
-      "version": "1.13.4"
+      "version": "1.13.6"
     },
     "plotly": {
       "name": "Plotly",
       "url": "https://plotly.com/javascript/getting-started",
-      "version": "2.24.2"
+      "version": "2.25.2"
     }
   },
   "aggregated": true

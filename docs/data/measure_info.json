@@ -1,6 +1,846 @@
 {
+  "_references": {
+    "bii-redist": {
+      "id": "bii-redist",
+      "author": "Biocomplexity Institute and Initiative",
+      "year": 2022,
+      "title": "redistribute: An R package to redistribute data",
+      "version": "0.0.1",
+      "url": "https://github.com/uva-bi-sdad/redistribute"
+    }
+  },
+  "{variant.name}{category.name}": {
+    "category": "Demographics",
+    "data_type": "{variant}",
+    "unit": "individual",
+    "equity_category": "Status",
+    "aggregation_method": "{variant}",
+    "short_name": "{variant} {category}",
+    "long_name": "{variant.short_description}",
+    "short_description": "{variant}",
+    "long_description": "{variant} 5-year ACS estimates in provided census geolevels. For non-census geolevels (such as zip codes), spatial overlaps are calculated between census block groups {category} Redistribution to non-census geolevels was performed using the redistribute R package.",
+    "statement": "{variant}",
+    "citations": "bii-redist",
+    "sources": [
+      {
+        "name": "American Community Survey",
+        "location": "5-Year estimates, table B21001, via the API",
+        "location_url": "https://www.census.gov/data/developers/data-sets/acs-5year.html",
+        "date_accessed": 2023,
+        "url": "https://www.census.gov/programs-surveys/acs.html"
+      },
+      {
+        "name": "Fairfax County Geospatial Data",
+        "location": "Boundaries > Zip Codes",
+        "location_url": "https://data-fairfaxcountygis.opendata.arcgis.com/datasets/Fairfaxcountygis::zip-codes/about",
+        "date_accessed": 2022,
+        "url": "https://data-fairfaxcountygis.opendata.arcgis.com/"
+      },
+      {
+        "name": "Fairfax County Geospatial Data",
+        "location": "Boundaries > Supervisor Districts",
+        "location_url": "https://data-fairfaxcountygis.opendata.arcgis.com/datasets/Fairfaxcountygis::supervisor-districts-5/about",
+        "date_accessed": 2022,
+        "url": "https://data-fairfaxcountygis.opendata.arcgis.com/"
+      },
+      {
+        "name": "Fairfax County Geospatial Data",
+        "location": "Health & Human Service > Human Services Regions",
+        "location_url": "https://data-fairfaxcountygis.opendata.arcgis.com/datasets/Fairfaxcountygis::human-services-regions/about",
+        "date_accessed": 2022,
+        "url": "https://data-fairfaxcountygis.opendata.arcgis.com/"
+      },
+      {
+        "name": "Arlington County GIS Open Data",
+        "location": "MHUD Polygons",
+        "location_url": "https://gisdata-arlgis.opendata.arcgis.com/datasets/ArlGIS::mhud-polygons/about",
+        "date_accessed": 2023,
+        "url": "https://gisdata-arlgis.opendata.arcgis.com/"
+      },
+      {
+        "name": "Arlington County GIS Open Data",
+        "location": "Civic Association Polygons",
+        "location_url": "https://gisdata-arlgis.opendata.arcgis.com/datasets/ArlGIS::civic-association-polygons-1/about",
+        "date_accessed": 2021,
+        "url": "https://gisdata-arlgis.opendata.arcgis.com/"
+      }
+    ],
+    "categories": {
+      "_parcels": {
+        "default": "parcels",
+        "long_description": "and parcels, then the value of each block group is divided across all living units within each intersecting parcel. Once parcel-level values are assigned, spatial overlaps are calculated between parcels and target regions such that parcel values can be aggregated to each intersecting target region based on proportion of overlap."
+      },
+      "_direct": {
+        "default": "direct",
+        "long_description": "and target regions, then the value of each block group is aggregated/disaggregated to any intersecting target region based on proportion of overlap."
+      }
+    },
+    "variants": {
+      "veteran_count": {
+        "default": "The Veteran population",
+        "data_type": "decimal",
+        "aggregation_method": "count",
+        "short_description": "The Veteran population.",
+        "long_description": "The Veteran population.",
+        "statement": "The Veteran population is {value} in {region_name}."
+      },
+      "veteran_percent": {
+        "default": "The Veteran population percent",
+        "data_type": "decimal",
+        "aggregation_method": "percent",
+        "short_description": "The Veteran population percent.",
+        "long_description": "The Veteran population percent.",
+        "statement": "The Veteran population percent is {value} in {region_name}."
+      }
+    },
+    "source_file": "https://github.com/uva-bi-sdad/sdc.demographics/blob/main/Veteran/code/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.demographics/blob/main/Veteran/data/distribution/va_hsrsdpdzccttrbg_sdad_2009_2021_veteran_demographics.csv.xz"
+  },
+  "age_{variant.name}{category.name}": {
+    "category": "Demographics",
+    "data_type": "{variant}",
+    "unit": "individual",
+    "equity_category": "Status",
+    "aggregation_method": "{variant}",
+    "short_name": "{variant} {category}",
+    "long_name": "{variant.short_description}",
+    "short_description": "{variant}",
+    "long_description": "{variant} 5-year ACS estimates in provided census geolevels. For non-census geolevels (such as zip codes), spatial overlaps are calculated between census block groups {category} Redistribution to non-census geolevels was performed using the redistribute R package.",
+    "statement": "{variant}",
+    "citations": "bii-redist",
+    "sources": [
+      {
+        "name": "American Community Survey",
+        "location": "5-Year estimates, table B01001, via the API",
+        "location_url": "https://www.census.gov/data/developers/data-sets/acs-5year.html",
+        "date_accessed": 2023,
+        "url": "https://www.census.gov/programs-surveys/acs.html"
+      },
+      {
+        "name": "Fairfax County Geospatial Data",
+        "location": "Boundaries > Zip Codes",
+        "location_url": "https://data-fairfaxcountygis.opendata.arcgis.com/datasets/Fairfaxcountygis::zip-codes/about",
+        "date_accessed": 2022,
+        "url": "https://data-fairfaxcountygis.opendata.arcgis.com/"
+      },
+      {
+        "name": "Fairfax County Geospatial Data",
+        "location": "Boundaries > Supervisor Districts",
+        "location_url": "https://data-fairfaxcountygis.opendata.arcgis.com/datasets/Fairfaxcountygis::supervisor-districts-5/about",
+        "date_accessed": 2022,
+        "url": "https://data-fairfaxcountygis.opendata.arcgis.com/"
+      },
+      {
+        "name": "Fairfax County Geospatial Data",
+        "location": "Health & Human Service > Human Services Regions",
+        "location_url": "https://data-fairfaxcountygis.opendata.arcgis.com/datasets/Fairfaxcountygis::human-services-regions/about",
+        "date_accessed": 2022,
+        "url": "https://data-fairfaxcountygis.opendata.arcgis.com/"
+      },
+      {
+        "name": "Arlington County GIS Open Data",
+        "location": "MHUD Polygons",
+        "location_url": "https://gisdata-arlgis.opendata.arcgis.com/datasets/ArlGIS::mhud-polygons/about",
+        "date_accessed": 2023,
+        "url": "https://gisdata-arlgis.opendata.arcgis.com/"
+      },
+      {
+        "name": "Arlington County GIS Open Data",
+        "location": "Civic Association Polygons",
+        "location_url": "https://gisdata-arlgis.opendata.arcgis.com/datasets/ArlGIS::civic-association-polygons-1/about",
+        "date_accessed": 2021,
+        "url": "https://gisdata-arlgis.opendata.arcgis.com/"
+      }
+    ],
+    "categories": {
+      "_parcels": {
+        "default": "parcels",
+        "long_description": "and parcels, then the value of each block group is divided across all living units within each intersecting parcel. Once parcel-level values are assigned, spatial overlaps are calculated between parcels and target regions such that parcel values can be aggregated to each intersecting target region based on proportion of overlap."
+      },
+      "_direct": {
+        "default": "direct",
+        "long_description": "and target regions, then the value of each block group is aggregated to any intersecting target region based on proportion of overlap."
+      }
+    },
+    "variants": {
+      "under_20_count": {
+        "default": "Population under age 20",
+        "data_type": "decimal",
+        "aggregation_method": "arithmetic mean",
+        "short_description": "The population estimates under age 20.",
+        "long_description": "The population estimates under age 20.",
+        "statement": "The population under age 20 is {value} in {region_name}."
+      },
+      "20_64_count": {
+        "default": "Population between age 20 and 64",
+        "data_type": "decimal",
+        "aggregation_method": "arithmetic mean",
+        "short_description": "The population estimates between age 20 and 64.",
+        "long_description": "The population estimates between age 20 and 64.",
+        "statement": "The population between age 20 and 64 is {value} in {region_name}."
+      },
+      "65_plus_count": {
+        "default": "Population over age 64",
+        "data_type": "decimal",
+        "aggregation_method": "arithmetic mean",
+        "short_description": "The population over age 64.",
+        "long_description": "The population over age 64.",
+        "statement": "The population over age 64 is {value} in {region_name}."
+      },
+      "under_20_percent": {
+        "default": "Percent of the population under age 20",
+        "data_type": "decimal",
+        "aggregation_method": "percent",
+        "short_description": "The percent of the population under age 20.",
+        "long_description": "The percent of the population under age 20.",
+        "statement": "The percent of the population under age 20 is {value} in {region_name}."
+      },
+      "20_64_percent": {
+        "default": "Percent of the population between age 20 and 64",
+        "data_type": "decimal",
+        "aggregation_method": "percent",
+        "short_description": "The percent of the population over age 64.",
+        "long_description": "The percent of the population over age 64.",
+        "statement": "The percent of the population over age 64 is {value} in {region_name}."
+      },
+      "65_plus_percent": {
+        "default": "Percent of the population over age 64",
+        "data_type": "decimal",
+        "aggregation_method": "percent",
+        "short_description": "The percent of the population over age 64.",
+        "long_description": "The percent of the population over age 64.",
+        "statement": "The percent of the population over age 64 is {value} in {region_name}."
+      },
+      "total_count": {
+        "default": "Total count of the population",
+        "data_type": "decimal",
+        "aggregation_method": "arithmetic mean",
+        "short_description": "Total count of the population.",
+        "long_description": "Total count of the population.",
+        "statement": "Total count of the population is {value} in {region_name}."
+      }
+    },
+    "source_file": "https://github.com/uva-bi-sdad/sdc.demographics/blob/main/Age/code/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.demographics/blob/main/Age/data/distribution/va_hsrsdpdzccttrbg_sdad_2009_2021_age_demographics.csv.xz"
+  },
+  "asian_boys_pov_cnt": {
+    "aggregation_method": "",
+    "categories": "",
+    "category": "",
+    "citations": "",
+    "data_type": "",
+    "equity_category": "",
+    "layer": "",
+    "long_description": "",
+    "long_name": "",
+    "measure_type": "",
+    "short_description": "",
+    "short_name": "asian_boys_pov_cnt",
+    "sources": "",
+    "statement": "",
+    "type": "",
+    "unit": "",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/ncr_tr_acs_2021_poverty_children.csv.xz"
+  },
+  "asian_boys_pov_pct": {
+    "aggregation_method": "",
+    "categories": "",
+    "category": "",
+    "citations": "",
+    "data_type": "",
+    "equity_category": "",
+    "layer": "",
+    "long_description": "",
+    "long_name": "",
+    "measure_type": "",
+    "short_description": "",
+    "short_name": "asian_boys_pov_pct",
+    "sources": "",
+    "statement": "",
+    "type": "",
+    "unit": "",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/ncr_tr_acs_2021_poverty_children.csv.xz"
+  },
+  "asian_girls_pov_cnt": {
+    "aggregation_method": "",
+    "categories": "",
+    "category": "",
+    "citations": "",
+    "data_type": "",
+    "equity_category": "",
+    "layer": "",
+    "long_description": "",
+    "long_name": "",
+    "measure_type": "",
+    "short_description": "",
+    "short_name": "asian_girls_pov_cnt",
+    "sources": "",
+    "statement": "",
+    "type": "",
+    "unit": "",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/ncr_tr_acs_2021_poverty_children.csv.xz"
+  },
+  "asian_girls_pov_pct": {
+    "aggregation_method": "",
+    "categories": "",
+    "category": "",
+    "citations": "",
+    "data_type": "",
+    "equity_category": "",
+    "layer": "",
+    "long_description": "",
+    "long_name": "",
+    "measure_type": "",
+    "short_description": "",
+    "short_name": "asian_girls_pov_pct",
+    "sources": "",
+    "statement": "",
+    "type": "",
+    "unit": "",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/ncr_tr_acs_2021_poverty_children.csv.xz"
+  },
+  "asian_men_pov_cnt": {
+    "aggregation_method": "",
+    "categories": "",
+    "category": "",
+    "citations": "",
+    "data_type": "",
+    "equity_category": "",
+    "layer": "",
+    "long_description": "",
+    "long_name": "",
+    "measure_type": "",
+    "short_description": "",
+    "short_name": "asian_men_pov_cnt",
+    "sources": "",
+    "statement": "",
+    "type": "",
+    "unit": "",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/ncr_tr_acs_2021_poverty_adults.csv.xz"
+  },
+  "asian_men_pov_pct": {
+    "aggregation_method": "",
+    "categories": "",
+    "category": "",
+    "citations": "",
+    "data_type": "",
+    "equity_category": "",
+    "layer": "",
+    "long_description": "",
+    "long_name": "",
+    "measure_type": "",
+    "short_description": "",
+    "short_name": "asian_men_pov_pct",
+    "sources": "",
+    "statement": "",
+    "type": "",
+    "unit": "",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/ncr_tr_acs_2021_poverty_adults.csv.xz"
+  },
+  "asian_women_pov_cnt": {
+    "aggregation_method": "",
+    "categories": "",
+    "category": "",
+    "citations": "",
+    "data_type": "",
+    "equity_category": "",
+    "layer": "",
+    "long_description": "",
+    "long_name": "",
+    "measure_type": "",
+    "short_description": "",
+    "short_name": "asian_women_pov_cnt",
+    "sources": "",
+    "statement": "",
+    "type": "",
+    "unit": "",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/ncr_tr_acs_2021_poverty_adults.csv.xz"
+  },
+  "asian_women_pov_pct": {
+    "aggregation_method": "",
+    "categories": "",
+    "category": "",
+    "citations": "",
+    "data_type": "",
+    "equity_category": "",
+    "layer": "",
+    "long_description": "",
+    "long_name": "",
+    "measure_type": "",
+    "short_description": "",
+    "short_name": "asian_women_pov_pct",
+    "sources": "",
+    "statement": "",
+    "type": "",
+    "unit": "",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/ncr_tr_acs_2021_poverty_adults.csv.xz"
+  },
+  "blk_boys_pov_cnt": {
+    "aggregation_method": "",
+    "categories": "",
+    "category": "",
+    "citations": "",
+    "data_type": "",
+    "equity_category": "",
+    "layer": "",
+    "long_description": "",
+    "long_name": "",
+    "measure_type": "",
+    "short_description": "",
+    "short_name": "blk_boys_pov_cnt",
+    "sources": "",
+    "statement": "",
+    "type": "",
+    "unit": "",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/ncr_tr_acs_2021_poverty_children.csv.xz"
+  },
+  "blk_boys_pov_pct": {
+    "aggregation_method": "",
+    "categories": "",
+    "category": "",
+    "citations": "",
+    "data_type": "",
+    "equity_category": "",
+    "layer": "",
+    "long_description": "",
+    "long_name": "",
+    "measure_type": "",
+    "short_description": "",
+    "short_name": "blk_boys_pov_pct",
+    "sources": "",
+    "statement": "",
+    "type": "",
+    "unit": "",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/ncr_tr_acs_2021_poverty_children.csv.xz"
+  },
+  "blk_girls_pov_cnt": {
+    "aggregation_method": "",
+    "categories": "",
+    "category": "",
+    "citations": "",
+    "data_type": "",
+    "equity_category": "",
+    "layer": "",
+    "long_description": "",
+    "long_name": "",
+    "measure_type": "",
+    "short_description": "",
+    "short_name": "blk_girls_pov_cnt",
+    "sources": "",
+    "statement": "",
+    "type": "",
+    "unit": "",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/ncr_tr_acs_2021_poverty_children.csv.xz"
+  },
+  "blk_girls_pov_pct": {
+    "aggregation_method": "",
+    "categories": "",
+    "category": "",
+    "citations": "",
+    "data_type": "",
+    "equity_category": "",
+    "layer": "",
+    "long_description": "",
+    "long_name": "",
+    "measure_type": "",
+    "short_description": "",
+    "short_name": "blk_girls_pov_pct",
+    "sources": "",
+    "statement": "",
+    "type": "",
+    "unit": "",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/ncr_tr_acs_2021_poverty_children.csv.xz"
+  },
+  "blk_men_pov_cnt": {
+    "aggregation_method": "",
+    "categories": "",
+    "category": "",
+    "citations": "",
+    "data_type": "",
+    "equity_category": "",
+    "layer": "",
+    "long_description": "",
+    "long_name": "",
+    "measure_type": "",
+    "short_description": "",
+    "short_name": "blk_men_pov_cnt",
+    "sources": "",
+    "statement": "",
+    "type": "",
+    "unit": "",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/ncr_tr_acs_2021_poverty_adults.csv.xz"
+  },
+  "blk_men_pov_pct": {
+    "aggregation_method": "",
+    "categories": "",
+    "category": "",
+    "citations": "",
+    "data_type": "",
+    "equity_category": "",
+    "layer": "",
+    "long_description": "",
+    "long_name": "",
+    "measure_type": "",
+    "short_description": "",
+    "short_name": "blk_men_pov_pct",
+    "sources": "",
+    "statement": "",
+    "type": "",
+    "unit": "",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/ncr_tr_acs_2021_poverty_adults.csv.xz"
+  },
+  "blk_women_pov_cnt": {
+    "aggregation_method": "",
+    "categories": "",
+    "category": "",
+    "citations": "",
+    "data_type": "",
+    "equity_category": "",
+    "layer": "",
+    "long_description": "",
+    "long_name": "",
+    "measure_type": "",
+    "short_description": "",
+    "short_name": "blk_women_pov_cnt",
+    "sources": "",
+    "statement": "",
+    "type": "",
+    "unit": "",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/ncr_tr_acs_2021_poverty_adults.csv.xz"
+  },
+  "blk_women_pov_pct": {
+    "aggregation_method": "",
+    "categories": "",
+    "category": "",
+    "citations": "",
+    "data_type": "",
+    "equity_category": "",
+    "layer": "",
+    "long_description": "",
+    "long_name": "",
+    "measure_type": "",
+    "short_description": "",
+    "short_name": "blk_women_pov_pct",
+    "sources": "",
+    "statement": "",
+    "type": "",
+    "unit": "",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/ncr_tr_acs_2021_poverty_adults.csv.xz"
+  },
+  "gender_{variant.name}{category.name}": {
+    "category": "Demographics",
+    "data_type": "{variant}",
+    "unit": "individual",
+    "equity_category": "Status",
+    "aggregation_method": "{variant}",
+    "short_name": "{variant} {category}",
+    "long_name": "{variant.short_description}",
+    "short_description": "{variant}",
+    "long_description": "{variant} 5-year ACS estimates in provided census geolevels. For non-census geolevels (such as zip codes), spatial overlaps are calculated between census block groups {category} Redistribution to non-census geolevels was performed using the redistribute R package.",
+    "statement": "{variant}",
+    "citations": "bii-redist",
+    "sources": [
+      {
+        "name": "American Community Survey",
+        "location": "5-Year estimates, table S0101, via the API",
+        "location_url": "https://www.census.gov/data/developers/data-sets/acs-5year.html",
+        "date_accessed": 2023,
+        "url": "https://www.census.gov/programs-surveys/acs.html"
+      },
+      {
+        "name": "Fairfax County Geospatial Data",
+        "location": "Boundaries > Zip Codes",
+        "location_url": "https://data-fairfaxcountygis.opendata.arcgis.com/datasets/Fairfaxcountygis::zip-codes/about",
+        "date_accessed": 2022,
+        "url": "https://data-fairfaxcountygis.opendata.arcgis.com/"
+      },
+      {
+        "name": "Fairfax County Geospatial Data",
+        "location": "Boundaries > Supervisor Districts",
+        "location_url": "https://data-fairfaxcountygis.opendata.arcgis.com/datasets/Fairfaxcountygis::supervisor-districts-5/about",
+        "date_accessed": 2022,
+        "url": "https://data-fairfaxcountygis.opendata.arcgis.com/"
+      },
+      {
+        "name": "Fairfax County Geospatial Data",
+        "location": "Health & Human Service > Human Services Regions",
+        "location_url": "https://data-fairfaxcountygis.opendata.arcgis.com/datasets/Fairfaxcountygis::human-services-regions/about",
+        "date_accessed": 2022,
+        "url": "https://data-fairfaxcountygis.opendata.arcgis.com/"
+      },
+      {
+        "name": "Arlington County GIS Open Data",
+        "location": "MHUD Polygons",
+        "location_url": "https://gisdata-arlgis.opendata.arcgis.com/datasets/ArlGIS::mhud-polygons/about",
+        "date_accessed": 2023,
+        "url": "https://gisdata-arlgis.opendata.arcgis.com/"
+      },
+      {
+        "name": "Arlington County GIS Open Data",
+        "location": "Civic Association Polygons",
+        "location_url": "https://gisdata-arlgis.opendata.arcgis.com/datasets/ArlGIS::civic-association-polygons-1/about",
+        "date_accessed": 2021,
+        "url": "https://gisdata-arlgis.opendata.arcgis.com/"
+      }
+    ],
+    "categories": {
+      "_parcels": {
+        "default": "parcels",
+        "long_description": "and parcels, then the value of each block group is divided across all living units within each intersecting parcel. Once parcel-level values are assigned, spatial overlaps are calculated between parcels and target regions such that parcel values can be aggregated to each intersecting target region based on proportion of overlap."
+      },
+      "_direct": {
+        "default": "direct",
+        "long_description": "and target regions, then the value of each block group is aggregated/disaggregated to any intersecting target region based on proportion of overlap."
+      }
+    },
+    "variants": {
+      "male_count": {
+        "default": "Male population",
+        "data_type": "decimal",
+        "aggregation_method": "arithmetic mean",
+        "short_description": "The count of males in population.",
+        "long_description": "The count of males in the total population.",
+        "statement": "The male population is {value} in {region_name}."
+      },
+      "female_count": {
+        "default": "Female population",
+        "data_type": "decimal",
+        "aggregation_method": "arithmetic mean",
+        "short_description": "The count of females in population.",
+        "long_description": "The count of females in the total population.",
+        "statement": "The female population is {value} in {region_name}."
+      },
+      "male_percent": {
+        "default": "Percentage of males",
+        "data_type": "decimal",
+        "aggregation_method": "percent",
+        "short_description": "The percent of males in the total population.",
+        "long_description": "The percent of males in the total population.",
+        "statement": "The percent of males is {value} in {region_name}."
+      },
+      "female_percent": {
+        "default": "Percentage of females",
+        "data_type": "decimal",
+        "aggregation_method": "percent",
+        "short_description": "The percent of females in the total population.",
+        "long_description": "The percent of females in the total population.",
+        "statement": "The percent of females is {value} in {region_name}."
+      },
+      "total_count": {
+        "default": "Total count of the population",
+        "data_type": "decimal",
+        "aggregation_method": "arithmetic mean",
+        "short_description": "Total count of the population.",
+        "long_description": "Total count of the population.",
+        "statement": "Total count of the population is {value} in {region_name}."
+      }
+    },
+    "source_file": "https://github.com/uva-bi-sdad/sdc.demographics/blob/main/Gender/code/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.demographics/blob/main/Gender/data/distribution/va_hsrsdpdzccttrbg_sdad_2009_2021_gender_demographics.csv.xz"
+  },
+  "his_boys_pov_cnt": {
+    "aggregation_method": "",
+    "categories": "",
+    "category": "",
+    "citations": "",
+    "data_type": "",
+    "equity_category": "",
+    "layer": "",
+    "long_description": "",
+    "long_name": "",
+    "measure_type": "",
+    "short_description": "",
+    "short_name": "his_boys_pov_cnt",
+    "sources": "",
+    "statement": "",
+    "type": "",
+    "unit": "",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/ncr_tr_acs_2021_poverty_children.csv.xz"
+  },
+  "his_boys_pov_pct": {
+    "aggregation_method": "",
+    "categories": "",
+    "category": "",
+    "citations": "",
+    "data_type": "",
+    "equity_category": "",
+    "layer": "",
+    "long_description": "",
+    "long_name": "",
+    "measure_type": "",
+    "short_description": "",
+    "short_name": "his_boys_pov_pct",
+    "sources": "",
+    "statement": "",
+    "type": "",
+    "unit": "",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/ncr_tr_acs_2021_poverty_children.csv.xz"
+  },
+  "his_girls_pov_cnt": {
+    "aggregation_method": "",
+    "categories": "",
+    "category": "",
+    "citations": "",
+    "data_type": "",
+    "equity_category": "",
+    "layer": "",
+    "long_description": "",
+    "long_name": "",
+    "measure_type": "",
+    "short_description": "",
+    "short_name": "his_girls_pov_cnt",
+    "sources": "",
+    "statement": "",
+    "type": "",
+    "unit": "",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/ncr_tr_acs_2021_poverty_children.csv.xz"
+  },
+  "his_girls_pov_pct": {
+    "aggregation_method": "",
+    "categories": "",
+    "category": "",
+    "citations": "",
+    "data_type": "",
+    "equity_category": "",
+    "layer": "",
+    "long_description": "",
+    "long_name": "",
+    "measure_type": "",
+    "short_description": "",
+    "short_name": "his_girls_pov_pct",
+    "sources": "",
+    "statement": "",
+    "type": "",
+    "unit": "",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/ncr_tr_acs_2021_poverty_children.csv.xz"
+  },
+  "his_men_pov_cnt": {
+    "aggregation_method": "",
+    "categories": "",
+    "category": "",
+    "citations": "",
+    "data_type": "",
+    "equity_category": "",
+    "layer": "",
+    "long_description": "",
+    "long_name": "",
+    "measure_type": "",
+    "short_description": "",
+    "short_name": "his_men_pov_cnt",
+    "sources": "",
+    "statement": "",
+    "type": "",
+    "unit": "",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/ncr_tr_acs_2021_poverty_adults.csv.xz"
+  },
+  "his_men_pov_pct": {
+    "aggregation_method": "",
+    "categories": "",
+    "category": "",
+    "citations": "",
+    "data_type": "",
+    "equity_category": "",
+    "layer": "",
+    "long_description": "",
+    "long_name": "",
+    "measure_type": "",
+    "short_description": "",
+    "short_name": "his_men_pov_pct",
+    "sources": "",
+    "statement": "",
+    "type": "",
+    "unit": "",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/ncr_tr_acs_2021_poverty_adults.csv.xz"
+  },
+  "his_women_pov_cnt": {
+    "aggregation_method": "",
+    "categories": "",
+    "category": "",
+    "citations": "",
+    "data_type": "",
+    "equity_category": "",
+    "layer": "",
+    "long_description": "",
+    "long_name": "",
+    "measure_type": "",
+    "short_description": "",
+    "short_name": "his_women_pov_cnt",
+    "sources": "",
+    "statement": "",
+    "type": "",
+    "unit": "",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/ncr_tr_acs_2021_poverty_adults.csv.xz"
+  },
+  "his_women_pov_pct": {
+    "aggregation_method": "",
+    "categories": "",
+    "category": "",
+    "citations": "",
+    "data_type": "",
+    "equity_category": "",
+    "layer": "",
+    "long_description": "",
+    "long_name": "",
+    "measure_type": "",
+    "short_description": "",
+    "short_name": "his_women_pov_pct",
+    "sources": "",
+    "statement": "",
+    "type": "",
+    "unit": "",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/ncr_tr_acs_2021_poverty_adults.csv.xz"
+  },
   "median_household_income": {
     "aggregation_method": "",
+    "categories": "",
     "category": "Financial Well Being",
     "citations": "",
     "data_type": "integer",
@@ -21,680 +861,182 @@
     ],
     "statement": "The median household income in {features.name} is {value} per year.",
     "type": "dollar",
-    "unit": "dollars"
+    "unit": "dollars",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Pay and Benefits/Household Income/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Pay and Benefits/Household Income/data/distribution/va_cttrbg_2015_2019_median_household_income.csv.xz"
   },
-  "perc_veteran": {
-    "category": "Demographics",
+  "othr_boys_pov_cnt": {
+    "aggregation_method": "",
+    "categories": "",
+    "category": "",
     "citations": "",
-    "data_type": "numeric",
-    "equity_category": "Status",
+    "data_type": "",
+    "equity_category": "",
     "layer": "",
-    "long_description": "The Veteran population percent. Based on American Community Survey ACS 2015/2019 5-year estimates Table B21001.",
-    "long_name": "Veteran population (percent)",
-    "measure_type": "percentage",
-    "short_description": "The Veteran population population percent. Based on American Community Survey ACS 2015/2019 5-year estimates.",
-    "short_name": "Veteran population",
-    "sources": [
-      {
-        "name": "American Community Survey Table B01001",
-        "date_accessed": 2021,
-        "url": "https://www.census.gov/programs-surveys/acs.html"
-      }
-    ],
-    "statement": "The Veteran population is {value} in {features.name}.",
-    "type": "percent",
-    "unit": ""
+    "long_description": "",
+    "long_name": "",
+    "measure_type": "",
+    "short_description": "",
+    "short_name": "othr_boys_pov_cnt",
+    "sources": "",
+    "statement": "",
+    "type": "",
+    "unit": "",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/ncr_tr_acs_2021_poverty_children.csv.xz"
   },
-  "perc_two_or_more": {
-    "category": "Demographics",
+  "othr_boys_pov_pct": {
+    "aggregation_method": "",
+    "categories": "",
+    "category": "",
     "citations": "",
-    "data_type": "numeric",
-    "equity_category": "Status",
+    "data_type": "",
+    "equity_category": "",
     "layer": "",
-    "long_description": "The two or more races population percent. Based on American Community Survey ACS 2015/2019 5-year estimates Table B01001.",
-    "long_name": "Two or more races population (percent)",
-    "measure_type": "percentage",
-    "short_description": "The two or more races population percent. Based on American Community Survey ACS 2015/2019 5-year estimates.",
-    "short_name": "Two or more races population",
-    "sources": [
-      {
-        "name": "American Community Survey Table B01001",
-        "date_accessed": 2021,
-        "url": "https://www.census.gov/programs-surveys/acs.html"
-      }
-    ],
-    "statement": "The two or more races population is {value} in {features.name}.",
-    "type": "percent",
-    "unit": ""
+    "long_description": "",
+    "long_name": "",
+    "measure_type": "",
+    "short_description": "",
+    "short_name": "othr_boys_pov_pct",
+    "sources": "",
+    "statement": "",
+    "type": "",
+    "unit": "",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/ncr_tr_acs_2021_poverty_children.csv.xz"
   },
-  "perc_other": {
-    "category": "Demographics",
+  "othr_girls_pov_cnt": {
+    "aggregation_method": "",
+    "categories": "",
+    "category": "",
     "citations": "",
-    "data_type": "numeric",
-    "equity_category": "Status",
+    "data_type": "",
+    "equity_category": "",
     "layer": "",
-    "long_description": "The Other racial population percent. Based on American Community Survey ACS 2015/2019 5-year estimates Table B01001.",
-    "long_name": "Other racial population (percent)",
-    "measure_type": "percentage",
-    "short_description": "The Other racial population population percent. Based on American Community Survey ACS 2015/2019 5-year estimates.",
-    "short_name": "Other racial population",
-    "sources": [
-      {
-        "name": "American Community Survey Table B01001",
-        "date_accessed": 2021,
-        "url": "https://www.census.gov/programs-surveys/acs.html"
-      }
-    ],
-    "statement": "The Other racial population is {value} in {features.name}.",
-    "type": "percent",
-    "unit": ""
+    "long_description": "",
+    "long_name": "",
+    "measure_type": "",
+    "short_description": "",
+    "short_name": "othr_girls_pov_cnt",
+    "sources": "",
+    "statement": "",
+    "type": "",
+    "unit": "",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/ncr_tr_acs_2021_poverty_children.csv.xz"
   },
-  "perc_hispanic_or_latino": {
-    "category": "Demographics",
+  "othr_girls_pov_pct": {
+    "aggregation_method": "",
+    "categories": "",
+    "category": "",
     "citations": "",
-    "data_type": "numeric",
-    "equity_category": "Status",
+    "data_type": "",
+    "equity_category": "",
     "layer": "",
-    "long_description": "The Hispanic/Latino population percent. Based on American Community Survey ACS 2015/2019 5-year estimates Table B01001.",
-    "long_name": "Hispanic/Latino population (percent)",
-    "measure_type": "percentage",
-    "short_description": "The Hispanic/Latino population population percent. Based on American Community Survey ACS 2015/2019 5-year estimates.",
-    "short_name": "Hispanic/Latino population",
-    "sources": [
-      {
-        "name": "American Community Survey Table B01001",
-        "date_accessed": 2021,
-        "url": "https://www.census.gov/programs-surveys/acs.html"
-      }
-    ],
-    "statement": "The Hispanic/Latino population is {value} in {features.name}.",
-    "type": "percent",
-    "unit": ""
+    "long_description": "",
+    "long_name": "",
+    "measure_type": "",
+    "short_description": "",
+    "short_name": "othr_girls_pov_pct",
+    "sources": "",
+    "statement": "",
+    "type": "",
+    "unit": "",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/ncr_tr_acs_2021_poverty_children.csv.xz"
   },
-  "perc_wht_alone": {
-    "category": "Demographics",
+  "othr_men_pov_cnt": {
+    "aggregation_method": "",
+    "categories": "",
+    "category": "",
     "citations": "",
-    "data_type": "numeric",
-    "equity_category": "Status",
+    "data_type": "",
+    "equity_category": "",
     "layer": "",
-    "long_description": "The White population percent. Based on American Community Survey ACS 2015/2019 5-year estimates Table B01001.",
-    "long_name": "White population (percent)",
-    "measure_type": "percentage",
-    "short_description": "The White population population percent. Based on American Community Survey ACS 2015/2019 5-year estimates.",
-    "short_name": "White population",
-    "sources": [
-      {
-        "name": "American Community Survey Table B01001",
-        "date_accessed": 2021,
-        "url": "https://www.census.gov/programs-surveys/acs.html"
-      }
-    ],
-    "statement": "The White population is {value} in {features.name}.",
-    "type": "percent",
-    "unit": ""
+    "long_description": "",
+    "long_name": "",
+    "measure_type": "",
+    "short_description": "",
+    "short_name": "othr_men_pov_cnt",
+    "sources": "",
+    "statement": "",
+    "type": "",
+    "unit": "",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/ncr_tr_acs_2021_poverty_adults.csv.xz"
   },
-  "perc_AAPI": {
-    "category": "Demographics",
+  "othr_men_pov_pct": {
+    "aggregation_method": "",
+    "categories": "",
+    "category": "",
     "citations": "",
-    "data_type": "numeric",
-    "equity_category": "Status",
+    "data_type": "",
+    "equity_category": "",
     "layer": "",
-    "long_description": "The Asian American/Pacific Islander population percent. Based on American Community Survey ACS 2015/2019 5-year estimates Table B01001.",
-    "long_name": "Asian American/Pacific Islander population (percent)",
-    "measure_type": "percentage",
-    "short_description": "The Asian American/Pacific Islander population population percent. Based on American Community Survey ACS 2015/2019 5-year estimates.",
-    "short_name": "Asian American/Pacific Islander population",
-    "sources": [
-      {
-        "name": "American Community Survey Table B01001",
-        "date_accessed": 2021,
-        "url": "https://www.census.gov/programs-surveys/acs.html"
-      }
-    ],
-    "statement": "The Asian American/Pacific Islander population is {value} in {features.name}.",
-    "type": "percent",
-    "unit": ""
+    "long_description": "",
+    "long_name": "",
+    "measure_type": "",
+    "short_description": "",
+    "short_name": "othr_men_pov_pct",
+    "sources": "",
+    "statement": "",
+    "type": "",
+    "unit": "",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/ncr_tr_acs_2021_poverty_adults.csv.xz"
   },
-  "perc_native_alone": {
-    "category": "Demographics",
+  "othr_women_pov_cnt": {
+    "aggregation_method": "",
+    "categories": "",
+    "category": "",
     "citations": "",
-    "data_type": "numeric",
-    "equity_category": "Status",
+    "data_type": "",
+    "equity_category": "",
     "layer": "",
-    "long_description": "The Native population percent. Based on American Community Survey ACS 2015/2019 5-year estimates Table B01001.",
-    "long_name": "Native population (percent)",
-    "measure_type": "percentage",
-    "short_description": "The Native population population percent. Based on American Community Survey ACS 2015/2019 5-year estimates.",
-    "short_name": "Native population",
-    "sources": [
-      {
-        "name": "American Community Survey Table B01001",
-        "date_accessed": 2021,
-        "url": "https://www.census.gov/programs-surveys/acs.html"
-      }
-    ],
-    "statement": "The Native population is {value} in {features.name}.",
-    "type": "percent",
-    "unit": ""
+    "long_description": "",
+    "long_name": "",
+    "measure_type": "",
+    "short_description": "",
+    "short_name": "othr_women_pov_cnt",
+    "sources": "",
+    "statement": "",
+    "type": "",
+    "unit": "",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/ncr_tr_acs_2021_poverty_adults.csv.xz"
   },
-  "perc_afr_amer_alone": {
-    "category": "Demographics",
+  "othr_women_pov_pct": {
+    "aggregation_method": "",
+    "categories": "",
+    "category": "",
     "citations": "",
-    "data_type": "numeric",
-    "equity_category": "Status",
+    "data_type": "",
+    "equity_category": "",
     "layer": "",
-    "long_description": "The Black population percent. Based on American Community Survey ACS 2015/2019 5-year estimates Table B01001.",
-    "long_name": "Black population (percent)",
-    "measure_type": "percentage",
-    "short_description": "The Black population population percent. Based on American Community Survey ACS 2015/2019 5-year estimates.",
-    "short_name": "Black population",
-    "sources": [
-      {
-        "name": "American Community Survey Table B01001",
-        "date_accessed": 2021,
-        "url": "https://www.census.gov/programs-surveys/acs.html"
-      }
-    ],
-    "statement": "The Black population is {value} in {features.name}.",
-    "type": "percent",
-    "unit": ""
-  },
-  "perc_female": {
-    "category": "Demographics",
-    "citations": "",
-    "data_type": "numeric",
-    "equity_category": "Status",
-    "layer": "",
-    "long_description": "The percent of females in the total population. Based on American Community Survey ACS 2010/2021 5-year estimates table S0101.",
-    "long_name": "Female population (percent)",
-    "measure_type": "percentage",
-    "short_description": "The percent of females in population. Based on American Community Survey ACS 2010/2021 5-year estimates.",
-    "short_name": "Female population",
-    "sources": [
-      {
-        "date_accessed": 2023,
-        "name": "American Community Survey Table S0101",
-        "url": "https://www.census.gov/programs-surveys/acs.html"
-      }
-    ],
-    "statement": "The female population is {value} in {features.name}.",
-    "type": "percent",
-    "unit": ""
-  },
-  "perc_male": {
-    "category": "Demographics",
-    "citations": "",
-    "data_type": "numeric",
-    "equity_category": "Status",
-    "layer": "",
-    "long_description": "The percent of males in the total population. Based on American Community Survey ACS 2010/2021 5-year estimates table S0101.",
-    "long_name": "Male population (percent)",
-    "measure_type": "percentage",
-    "short_description": "The percent of males in population. Based on American Community Survey ACS 2010/2021 5-year estimates.",
-    "short_name": "Male population",
-    "sources": [
-      {
-        "date_accessed": 2023,
-        "name": "American Community Survey Table S0101",
-        "url": "https://www.census.gov/programs-surveys/acs.html"
-      }
-    ],
-    "statement": "The male population is {value} in {features.name}.",
-    "type": "percent",
-    "unit": ""
-  },
-  "perc_pop_under_20": {
-    "category": "Demographics",
-    "citations": "",
-    "data_type": "numeric",
-    "equity_category": "Status",
-    "layer": "",
-    "long_description": "The percent of the population under age 20. Based on American Community Survey ACS 2015/2019 5-year estimates Table B01001.",
-    "long_name": "Under 20 population (percent)",
-    "measure_type": "percentage",
-    "short_description": "The percent of the population under age 20. Based on American Community Survey ACS 2015/2019 5-year estimates.",
-    "short_name": "Under 20 population",
-    "sources": [
-      {
-        "date_accessed": 2023,
-        "name": "American Community Survey Table B01001",
-        "url": "https://www.census.gov/programs-surveys/acs.html"
-      }
-    ],
-    "statement": "The percent of the population under age 20 is {value} in {features.name}.",
-    "type": "percent",
-    "unit": ""
-  },
-  "perc_pop_65_plus": {
-    "category": "Demographics",
-    "citations": "",
-    "data_type": "numeric",
-    "equity_category": "Status",
-    "layer": "",
-    "long_description": "The percent of the population over age 64. Based on American Community Survey ACS 2015/2019 5-year estimates Table B01001.",
-    "long_name": "65 plus population (percent)",
-    "measure_type": "percentage",
-    "short_description": "The percent of the population over age 64. Based on American Community Survey ACS 2015/2019 5-year estimates.",
-    "short_name": "65 plus population",
-    "sources": [
-      {
-        "date_accessed": 2023,
-        "name": "American Community Survey Table B01001",
-        "url": "https://www.census.gov/programs-surveys/acs.html"
-      }
-    ],
-    "statement": "The percent of the population over age 64 is {value} in {features.name}.",
-    "type": "percent",
-    "unit": ""
-  },
-  "perc_pop_20_64": {
-    "category": "Demographics",
-    "citations": "",
-    "data_type": "numeric",
-    "equity_category": "Status",
-    "layer": "",
-    "long_description": "The percent of the population between age 20 and 64. Based on American Community Survey ACS 2015/2019 5-year estimates Table B01001.",
-    "long_name": "20 to 64 population (percent)",
-    "measure_type": "percentage",
-    "short_description": "The percent of the population between age 20 and 64. Based on American Community Survey ACS 2015/2019 5-year estimates.",
-    "short_name": "20 to 64 population",
-    "sources": [
-      {
-        "date_accessed": 2023,
-        "name": "American Community Survey Table B01001",
-        "url": "https://www.census.gov/programs-surveys/acs.html"
-      }
-    ],
-    "statement": "The percent of the population between age 20 and 64 is {value} in {features.name}.",
-    "type": "percent",
-    "unit": ""
-  },
-  "rac_industry_other_services_female_perc": {
-    "aggregation_method": "percent",
-    "category": "Employment/Workforce Development",
-    "citations": [],
-    "data_type": "",
-    "equity_category": "",
-    "layer": [],
-    "long_description": "Percent of the female workforce in other Service industry sectors. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
-    "long_name": "Home - Female workforce in other Service industry sectors",
-    "measure_type": "percent",
-    "short_description": "Percent of the female workforce in other Service industry sectors",
-    "short_name": "Home - Female workforce in other Service industry sectors",
-    "sources": [
-      {
-        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
-        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
-        "date_accessed": 2023,
-        "url": "https://lehd.ces.census.gov/data/"
-      }
-    ],
-    "statement": "{value} of the female workers living in {features.name} are in other Service industry sectors.",
+    "long_description": "",
+    "long_name": "",
+    "measure_type": "",
+    "short_description": "",
+    "short_name": "othr_women_pov_pct",
+    "sources": "",
+    "statement": "",
     "type": "",
-    "unit": "person"
-  },
-  "rac_industry_other_services_male_perc": {
-    "aggregation_method": "percent",
-    "category": "Employment/Workforce Development",
-    "citations": [],
-    "data_type": "",
-    "equity_category": "",
-    "layer": [],
-    "long_description": "Percent of the male workforce in other Service industry sectors. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
-    "long_name": "Home - Male workforce in other Service industry sectors",
-    "measure_type": "percent",
-    "short_description": "Percent of the male workforce in other Service industry sectors",
-    "short_name": "Home - Male workforce in other Service industry sectors",
-    "sources": [
-      {
-        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
-        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
-        "date_accessed": 2023,
-        "url": "https://lehd.ces.census.gov/data/"
-      }
-    ],
-    "statement": "{value} of the male workers living in {features.name} are in other Service industry sectors.",
-    "type": "",
-    "unit": "person"
-  },
-  "rac_industry_trade_transporation_utilities_female_perc": {
-    "aggregation_method": "percent",
-    "category": "Employment/Workforce Development",
-    "citations": [],
-    "data_type": "",
-    "equity_category": "",
-    "layer": [],
-    "long_description": "Percent of the female workforce in Trade, Transportation, and Utility industry sectors. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
-    "long_name": "Home - Female workforce in Trade, Transportation, and Utility industry sectors",
-    "measure_type": "percent",
-    "short_description": "Percent of the female workforce in Trade, Transportation, and Utility industry sectors",
-    "short_name": "Home - Female workforce in Trade, Transportation, and Utility industry sectors",
-    "sources": [
-      {
-        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
-        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
-        "date_accessed": 2023,
-        "url": "https://lehd.ces.census.gov/data/"
-      }
-    ],
-    "statement": "{value} of the female workers living in {features.name} are in Trade, Transportation, and Utility industry sectors.",
-    "type": "",
-    "unit": "person"
-  },
-  "rac_industry_trade_transporation_utilities_male_perc": {
-    "aggregation_method": "percent",
-    "category": "Employment/Workforce Development",
-    "citations": [],
-    "data_type": "",
-    "equity_category": "",
-    "layer": [],
-    "long_description": "Percent of the male workforce in Trade, Transportation, and Utility industry sectors. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
-    "long_name": "Home - Male workforce in Trade, Transportation, and Utility industry sectors",
-    "measure_type": "percent",
-    "short_description": "Percent of the male workforce in Trade, Transportation, and Utility industry sectors",
-    "short_name": "Home - Male workforce in Trade, Transportation, and Utility industry sectors",
-    "sources": [
-      {
-        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
-        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
-        "date_accessed": 2023,
-        "url": "https://lehd.ces.census.gov/data/"
-      }
-    ],
-    "statement": "{value} of the male workers living in {features.name} are in Trade, Transportation, and Utility industry sectors.",
-    "type": "",
-    "unit": "person"
-  },
-  "rac_industry_goods_female_perc": {
-    "aggregation_method": "percent",
-    "category": "Employment/Workforce Development",
-    "citations": [],
-    "data_type": "",
-    "equity_category": "",
-    "layer": [],
-    "long_description": "Percent of the female workforce in Goods Producing industry sectors. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
-    "long_name": "Home - Female workforce in Goods Producing industry sectors",
-    "measure_type": "percent",
-    "short_description": "Percent of the female workforce in Goods Producing industry sectors",
-    "short_name": "Home - Female workforce in Goods Producing industry sectors",
-    "sources": [
-      {
-        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
-        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
-        "date_accessed": 2023,
-        "url": "https://lehd.ces.census.gov/data/"
-      }
-    ],
-    "statement": "{value} of the female workers living in {features.name} are in Goods Producing industry sectors .",
-    "type": "",
-    "unit": "person"
-  },
-  "rac_industry_goods_male_perc": {
-    "aggregation_method": "percent",
-    "category": "Employment/Workforce Development",
-    "citations": [],
-    "data_type": "",
-    "equity_category": "",
-    "layer": [],
-    "long_description": "Percent of the male workforce in Goods Producing industry sectors. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
-    "long_name": "Home - Male workforce in Goods Producing industry sectors",
-    "measure_type": "percent",
-    "short_description": "Percent of the male workforce in Goods Producing industry sectors",
-    "short_name": "Home - Male workforce in Goods Producing industry sectors",
-    "sources": [
-      {
-        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
-        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
-        "date_accessed": 2023,
-        "url": "https://lehd.ces.census.gov/data/"
-      }
-    ],
-    "statement": "{value} of the male workers living in {features.name} are in Goods Producing industry sectors.",
-    "type": "",
-    "unit": "person"
-  },
-  "rac_earnings_3334_and_over_female_perc": {
-    "aggregation_method": "percent",
-    "category": "Employment/Workforce Development",
-    "citations": [],
-    "data_type": "",
-    "equity_category": "",
-    "layer": [],
-    "long_description": "Percent of the female workforce earning over $3,334 per month. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
-    "long_name": "Home - Female workforce earning over $3,334 per month",
-    "measure_type": "percent",
-    "short_description": "Percent of the female workforce earning over $3,334 per month",
-    "short_name": "Home - Female workforce earning over $3,334 per month",
-    "sources": [
-      {
-        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
-        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
-        "date_accessed": 2023,
-        "url": "https://lehd.ces.census.gov/data/"
-      }
-    ],
-    "statement": "{value} of the female workers living in {features.name} earn over $3,334 per month.",
-    "type": "",
-    "unit": "person"
-  },
-  "rac_earnings_3334_and_over_male_perc": {
-    "aggregation_method": "percent",
-    "category": "Employment/Workforce Development",
-    "citations": [],
-    "data_type": "",
-    "equity_category": "",
-    "layer": [],
-    "long_description": "Percent of the male workforce earning over $3,334 per month. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
-    "long_name": "Home - Male workforce earning over $3,334 per month",
-    "measure_type": "percent",
-    "short_description": "Percent of the male workforce earning over $3,334 per month",
-    "short_name": "Home - Male workforce earning over $3,334 per month",
-    "sources": [
-      {
-        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
-        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
-        "date_accessed": 2023,
-        "url": "https://lehd.ces.census.gov/data/"
-      }
-    ],
-    "statement": "{value} of the male workers living in {features.name} earn over $3,334 per month.",
-    "type": "",
-    "unit": "person"
-  },
-  "rac_earnings_1251_to_3333_female_perc": {
-    "aggregation_method": "percent",
-    "category": "Employment/Workforce Development",
-    "citations": [],
-    "data_type": "",
-    "equity_category": "",
-    "layer": [],
-    "long_description": "Percent of the female workforce earning $1,250 to 3,333 per month. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
-    "long_name": "Home - Female workforce earning $1,250 to $3,333 per month",
-    "measure_type": "percent",
-    "short_description": "Percent of the female workforce earning $1,250 to 3,333 per month",
-    "short_name": "Home - Female workforce earning $1,250 to $3,333 per month",
-    "sources": [
-      {
-        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
-        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
-        "date_accessed": 2023,
-        "url": "https://lehd.ces.census.gov/data/"
-      }
-    ],
-    "statement": "{value} of the female workers living in {features.name} earn $1,250 to $3,333 per month.",
-    "type": "",
-    "unit": "person"
-  },
-  "rac_earnings_1251_to_3333_male_perc": {
-    "aggregation_method": "percent",
-    "category": "Employment/Workforce Development",
-    "citations": [],
-    "data_type": "",
-    "equity_category": "",
-    "layer": [],
-    "long_description": "Percent of the male workforce earning $1,250 to 3,333 per month. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
-    "long_name": "Home - Male workforce earning $1,250 to $3,333 per month",
-    "measure_type": "percent",
-    "short_description": "Percent of the male workforce earning $1,250 to 3,333 per month",
-    "short_name": "Home - Male workforce earning $1,250 to $3,333 per month",
-    "sources": [
-      {
-        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
-        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
-        "date_accessed": 2023,
-        "url": "https://lehd.ces.census.gov/data/"
-      }
-    ],
-    "statement": "{value} of the male workers living in {features.name} earn $1,250 to $3,333 per month.",
-    "type": "",
-    "unit": "person"
-  },
-  "rac_earnings_1250_and_under_female_perc": {
-    "aggregation_method": "percent",
-    "category": "Employment/Workforce Development",
-    "citations": [],
-    "data_type": "",
-    "equity_category": "",
-    "layer": [],
-    "long_description": "Percent of the female workforce earning under $1,250 per month. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
-    "long_name": "Home - Female workforce earning under $1,250 per month",
-    "measure_type": "percent",
-    "short_description": "Percent of the female workforce earning under $1,250 per month",
-    "short_name": "Home - Female workforce earning under $1,250 per month",
-    "sources": [
-      {
-        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
-        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
-        "date_accessed": 2023,
-        "url": "https://lehd.ces.census.gov/data/"
-      }
-    ],
-    "statement": "{value} of the female workers living in {features.name} earn under $1,250 per month.",
-    "type": "",
-    "unit": "person"
-  },
-  "rac_earnings_1250_and_under_male_perc": {
-    "aggregation_method": "percent",
-    "category": "Employment/Workforce Development",
-    "citations": [],
-    "data_type": "",
-    "equity_category": "",
-    "layer": [],
-    "long_description": "Percent of the male workforce earning under $1,250 per month. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
-    "long_name": "Home - Male workforce earning under $1,250 per month",
-    "measure_type": "percent",
-    "short_description": "Percent of the male workforce earning under $1,250 per month",
-    "short_name": "Home - Male workforce earning under $1,250 per month",
-    "sources": [
-      {
-        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
-        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
-        "date_accessed": 2023,
-        "url": "https://lehd.ces.census.gov/data/"
-      }
-    ],
-    "statement": "{value} of the male workers living in {features.name} earn under $1,250 per month.",
-    "type": "",
-    "unit": "person"
-  },
-  "rac_age_55_and_over_female_perc": {
-    "aggregation_method": "percent",
-    "category": "Employment/Workforce Development",
-    "citations": [],
-    "data_type": "",
-    "equity_category": "",
-    "layer": [],
-    "long_description": "Percent of the female workforce over 55. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
-    "long_name": "Home - Female workforce over 55",
-    "measure_type": "percent",
-    "short_description": "Percent of the female workforce over 55",
-    "short_name": "Home - Female workforce over 55",
-    "sources": [
-      {
-        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
-        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
-        "date_accessed": 2023,
-        "url": "https://lehd.ces.census.gov/data/"
-      }
-    ],
-    "statement": "{value} of the female workers living in {features.name} are over 55.",
-    "type": "",
-    "unit": "person"
-  },
-  "rac_age_55_and_over_male_perc": {
-    "aggregation_method": "percent",
-    "category": "Employment/Workforce Development",
-    "citations": [],
-    "data_type": "",
-    "equity_category": "",
-    "layer": [],
-    "long_description": "Percent of the male workforce over 55. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
-    "long_name": "Home - Male workforce over 55",
-    "measure_type": "percent",
-    "short_description": "Percent of the male workforce over 55",
-    "short_name": "Home - Male workforce over 55",
-    "sources": [
-      {
-        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
-        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
-        "date_accessed": 2023,
-        "url": "https://lehd.ces.census.gov/data/"
-      }
-    ],
-    "statement": "{value} of the male workers living in {features.name} are over 55.",
-    "type": "",
-    "unit": "person"
-  },
-  "rac_age_30_to_54_female_perc": {
-    "aggregation_method": "percent",
-    "category": "Employment/Workforce Development",
-    "citations": [],
-    "data_type": "",
-    "equity_category": "",
-    "layer": [],
-    "long_description": "Percent of the female workforce 30 to 54. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
-    "long_name": "Home - Female workforce 30 to 54",
-    "measure_type": "percent",
-    "short_description": "Percent of the female workforce 30 to 54",
-    "short_name": "Home - Female workforce 30 to 54",
-    "sources": [
-      {
-        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
-        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
-        "date_accessed": 2023,
-        "url": "https://lehd.ces.census.gov/data/"
-      }
-    ],
-    "statement": "{value} of the female workers living in {features.name} are 30 to 54.",
-    "type": "",
-    "unit": "person"
-  },
-  "rac_age_30_to_54_male_perc": {
-    "aggregation_method": "percent",
-    "category": "Employment/Workforce Development",
-    "citations": [],
-    "data_type": "",
-    "equity_category": "",
-    "layer": [],
-    "long_description": "Percent of the male workforce 30 to 54. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
-    "long_name": "Home - Male workforce 30 to 54",
-    "measure_type": "percent",
-    "short_description": "Percent of the male workforce 30 to 54",
-    "short_name": "Home - Male workforce 30 to 54",
-    "sources": [
-      {
-        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
-        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
-        "date_accessed": 2023,
-        "url": "https://lehd.ces.census.gov/data/"
-      }
-    ],
-    "statement": "{value} of the male workers are 30 to 54 living in {features.name}.",
-    "type": "",
-    "unit": "person"
+    "unit": "",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/ncr_tr_acs_2021_poverty_adults.csv.xz"
   },
   "rac_age_29_and_under_female_perc": {
     "aggregation_method": "percent",
+    "categories": "",
     "category": "Employment/Workforce Development",
     "citations": [],
     "data_type": "",
@@ -715,10 +1057,14 @@
     ],
     "statement": "{value} of the female workers living in {features.name} are under 29.",
     "type": "",
-    "unit": "person"
+    "unit": "person",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/va059_cttrbg_lodes_2010_2019_rac_employment_segments_by_sex.csv.xz"
   },
   "rac_age_29_and_under_male_perc": {
     "aggregation_method": "percent",
+    "categories": "",
     "category": "Employment/Workforce Development",
     "citations": [],
     "data_type": "",
@@ -739,356 +1085,24 @@
     ],
     "statement": "{value} of the male workers living in {features.name} are under 29.",
     "type": "",
-    "unit": "person"
+    "unit": "person",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/va059_cttrbg_lodes_2010_2019_rac_employment_segments_by_sex.csv.xz"
   },
-  "wac_industry_other_services_female_perc": {
+  "rac_age_30_to_54_female_perc": {
     "aggregation_method": "percent",
+    "categories": "",
     "category": "Employment/Workforce Development",
     "citations": [],
     "data_type": "",
     "equity_category": "",
     "layer": [],
-    "long_description": "Percent of the female workforce in other Service industry sectors. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
-    "long_name": "Workplace - Female workforce in other Service industry sectors",
-    "measure_type": "percent",
-    "short_description": "Percent of the female workforce in other Service industry sectors",
-    "short_name": "Workplace - Female workforce in other Service industry sectors",
-    "sources": [
-      {
-        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
-        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
-        "date_accessed": 2023,
-        "url": "https://lehd.ces.census.gov/data/"
-      }
-    ],
-    "statement": "{value} of the female workers working in {features.name} are in other Service industry sectors.",
-    "type": "",
-    "unit": "person"
-  },
-  "wac_industry_other_services_male_perc": {
-    "aggregation_method": "percent",
-    "category": "Employment/Workforce Development",
-    "citations": [],
-    "data_type": "",
-    "equity_category": "",
-    "layer": [],
-    "long_description": "Percent of the male workforce in other Service industry sectors. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
-    "long_name": "Workplace - Male workforce in other Service industry sectors",
-    "measure_type": "percent",
-    "short_description": "Percent of the male workforce in other Service industry sectors",
-    "short_name": "Workplace - Male workforce in other Service industry sectors",
-    "sources": [
-      {
-        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
-        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
-        "date_accessed": 2023,
-        "url": "https://lehd.ces.census.gov/data/"
-      }
-    ],
-    "statement": "{value} of the male workers working in {features.name} are in other Service industry sectors.",
-    "type": "",
-    "unit": "person"
-  },
-  "wac_industry_trade_transporation_utilities_female_perc": {
-    "aggregation_method": "percent",
-    "category": "Employment/Workforce Development",
-    "citations": [],
-    "data_type": "",
-    "equity_category": "",
-    "layer": [],
-    "long_description": "Percent of the female workforce in Trade, Transportation, and Utility industry sectors. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
-    "long_name": "Workplace - Female workforce in Trade, Transportation, and Utility industry sectors",
-    "measure_type": "percent",
-    "short_description": "Percent of the female workforce in Trade, Transportation, and Utility industry sectors",
-    "short_name": "Workplace - Female workforce in Trade, Transportation, and Utility industry sectors",
-    "sources": [
-      {
-        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
-        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
-        "date_accessed": 2023,
-        "url": "https://lehd.ces.census.gov/data/"
-      }
-    ],
-    "statement": "{value} of the female workers working in {features.name} are in Trade, Transportation, and Utility industry sectors.",
-    "type": "",
-    "unit": "person"
-  },
-  "wac_industry_trade_transporation_utilities_male_perc": {
-    "aggregation_method": "percent",
-    "category": "Employment/Workforce Development",
-    "citations": [],
-    "data_type": "",
-    "equity_category": "",
-    "layer": [],
-    "long_description": "Percent of the male workforce in Trade, Transportation, and Utility industry sectors. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
-    "long_name": "Workplace - Male workforce in Trade, Transportation, and Utility industry sectors",
-    "measure_type": "percent",
-    "short_description": "Percent of the male workforce in Trade, Transportation, and Utility industry sectors",
-    "short_name": "Workplace - Male workforce in Trade, Transportation, and Utility industry sectors",
-    "sources": [
-      {
-        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
-        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
-        "date_accessed": 2023,
-        "url": "https://lehd.ces.census.gov/data/"
-      }
-    ],
-    "statement": "{value} of the male workers working in {features.name} are in Trade, Transportation, and Utility industry sectors.",
-    "type": "",
-    "unit": "person"
-  },
-  "wac_industry_goods_female_perc": {
-    "aggregation_method": "percent",
-    "category": "Employment/Workforce Development",
-    "citations": [],
-    "data_type": "",
-    "equity_category": "",
-    "layer": [],
-    "long_description": "Percent of the female workforce in Goods Producing industry sectors. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
-    "long_name": "Workplace - Female workforce in Goods Producing industry sectors",
-    "measure_type": "percent",
-    "short_description": "Percent of the female workforce in Goods Producing industry sectors",
-    "short_name": "Workplace - Female workforce in Goods Producing industry sectors",
-    "sources": [
-      {
-        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
-        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
-        "date_accessed": 2023,
-        "url": "https://lehd.ces.census.gov/data/"
-      }
-    ],
-    "statement": "{value} of the female workers working in {features.name} are in Goods Producing industry sectors.",
-    "type": "",
-    "unit": "person"
-  },
-  "wac_industry_goods_male_perc": {
-    "aggregation_method": "percent",
-    "category": "Employment/Workforce Development",
-    "citations": [],
-    "data_type": "",
-    "equity_category": "",
-    "layer": [],
-    "long_description": "Percent of the male workforce in Goods Producing industry sectors. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
-    "long_name": "Workplace - Male workforce in Goods Producing industry sectors",
-    "measure_type": "percent",
-    "short_description": "Percent of the male workforce in Goods Producing industry sectors",
-    "short_name": "Workplace - Male workforce in Goods Producing industry sectors",
-    "sources": [
-      {
-        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
-        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
-        "date_accessed": 2023,
-        "url": "https://lehd.ces.census.gov/data/"
-      }
-    ],
-    "statement": "{value} of the male workers working in {features.name} are in Goods Producing industry sectors.",
-    "type": "",
-    "unit": "person"
-  },
-  "wac_earnings_3334_and_over_female_perc": {
-    "aggregation_method": "percent",
-    "category": "Employment/Workforce Development",
-    "citations": [],
-    "data_type": "",
-    "equity_category": "",
-    "layer": [],
-    "long_description": "Percent of the female workforce earning over $3,334 per month. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
-    "long_name": "Workplace - Female workforce earning over $3,334 per month",
-    "measure_type": "percent",
-    "short_description": "Percent of the female workforce earning over $3,334 per month",
-    "short_name": "Workplace - Female workforce earning over $3,334 per month",
-    "sources": [
-      {
-        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
-        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
-        "date_accessed": 2023,
-        "url": "https://lehd.ces.census.gov/data/"
-      }
-    ],
-    "statement": "{value} of the female workers working in {features.name} earn over $3,334 per month.",
-    "type": "",
-    "unit": "person"
-  },
-  "wac_earnings_3334_and_over_male_perc": {
-    "aggregation_method": "percent",
-    "category": "Employment/Workforce Development",
-    "citations": [],
-    "data_type": "",
-    "equity_category": "",
-    "layer": [],
-    "long_description": "Percent of the male workforce earning over $3,334 per month. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
-    "long_name": "Workplace - Male workforce earning over $3,334 per month",
-    "measure_type": "percent",
-    "short_description": "Percent of the male workforce earning over $3,334 per month",
-    "short_name": "Workplace - Male workforce earning over $3,334 per month",
-    "sources": [
-      {
-        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
-        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
-        "date_accessed": 2023,
-        "url": "https://lehd.ces.census.gov/data/"
-      }
-    ],
-    "statement": "{value} of the male workers working in {features.name} earn over $3,334 per month.",
-    "type": "",
-    "unit": "person"
-  },
-  "wac_earnings_1251_to_3333_female_perc": {
-    "aggregation_method": "percent",
-    "category": "Employment/Workforce Development",
-    "citations": [],
-    "data_type": "",
-    "equity_category": "",
-    "layer": [],
-    "long_description": "Percent of the female workforce earning $1,250 to 3,333 per month. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
-    "long_name": "Workplace - Female workforce earning $1,250 to $3,333 per month",
-    "measure_type": "percent",
-    "short_description": "Percent of the female workforce earning $1,250 to 3,3330 per month",
-    "short_name": "Workplace - Female workforce earning $1,250 to $3,333 per month",
-    "sources": [
-      {
-        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
-        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
-        "date_accessed": 2023,
-        "url": "https://lehd.ces.census.gov/data/"
-      }
-    ],
-    "statement": "{value} of the female workers working in {features.name} earn $1,250 to $3,333 per month.",
-    "type": "",
-    "unit": "person"
-  },
-  "wac_earnings_1251_to_3333_male_perc": {
-    "aggregation_method": "percent",
-    "category": "Employment/Workforce Development",
-    "citations": [],
-    "data_type": "",
-    "equity_category": "",
-    "layer": [],
-    "long_description": "Percent of the male workforce earning $1,250 to 3,333 per month. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
-    "long_name": "Workplace - Male workforce earning $1,250 to $3,333 per month",
-    "measure_type": "percent",
-    "short_description": "Percent of the male workforce earning $1,250 to 3,3330 per month",
-    "short_name": "Workplace - Male workforce earning $1,250 to $3,333 per month",
-    "sources": [
-      {
-        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
-        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
-        "date_accessed": 2023,
-        "url": "https://lehd.ces.census.gov/data/"
-      }
-    ],
-    "statement": "{value} of the male workers working in {features.name} earn $1,250 to $3,333 per month.",
-    "type": "",
-    "unit": "person"
-  },
-  "wac_earnings_1250_and_under_female_perc": {
-    "aggregation_method": "percent",
-    "category": "Employment/Workforce Development",
-    "citations": [],
-    "data_type": "",
-    "equity_category": "",
-    "layer": [],
-    "long_description": "Percent of the female workforce earning under $1,250 per month. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
-    "long_name": "Workplace - Female workforce earning under $1,250 per month",
-    "measure_type": "percent",
-    "short_description": "Percent of the female workforce earning under $1,250 per month",
-    "short_name": "Workplace - Female workforce earning under $1,250 per month",
-    "sources": [
-      {
-        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
-        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
-        "date_accessed": 2023,
-        "url": "https://lehd.ces.census.gov/data/"
-      }
-    ],
-    "statement": "{value} of the female workers working  in {features.name} earn under $1,250 per month.",
-    "type": "",
-    "unit": "person"
-  },
-  "wac_earnings_1250_and_under_male_perc": {
-    "aggregation_method": "percent",
-    "category": "Employment/Workforce Development",
-    "citations": [],
-    "data_type": "",
-    "equity_category": "",
-    "layer": [],
-    "long_description": "Percent of the male workforce earning under $1,250 per month. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
-    "long_name": "Workplace - Male workforce earning under $1,250 per month",
-    "measure_type": "percent",
-    "short_description": "Percent of the male workforce earning under $1,250 per month",
-    "short_name": "Workplace - Male workforce earning under $1,250 per month",
-    "sources": [
-      {
-        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
-        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
-        "date_accessed": 2023,
-        "url": "https://lehd.ces.census.gov/data/"
-      }
-    ],
-    "statement": "{value} of the male workers working in {features.name} earn under $1,250 per month.",
-    "type": "",
-    "unit": "person"
-  },
-  "wac_age_55_and_over_female_perc": {
-    "aggregation_method": "percent",
-    "category": "Employment/Workforce Development",
-    "citations": [],
-    "data_type": "",
-    "equity_category": "",
-    "layer": [],
-    "long_description": "Percent of the female workforce over 55. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
-    "long_name": "Workplace - Female workforce over 55",
-    "measure_type": "percent",
-    "short_description": "Percent of the female workforce over 55",
-    "short_name": "Workplace - Female workforce over 55",
-    "sources": [
-      {
-        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
-        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
-        "date_accessed": 2023,
-        "url": "https://lehd.ces.census.gov/data/"
-      }
-    ],
-    "statement": "{value} of the female workers working in {features.name} are over 55.",
-    "type": "",
-    "unit": "person"
-  },
-  "wac_age_55_and_over_male_perc": {
-    "aggregation_method": "percent",
-    "category": "Employment/Workforce Development",
-    "citations": [],
-    "data_type": "",
-    "equity_category": "",
-    "layer": [],
-    "long_description": "Percent of the male workforce over 55. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
-    "long_name": "Workplace - Male workforce over 55",
-    "measure_type": "percent",
-    "short_description": "Percent of the male workforce over 55",
-    "short_name": "Workplace - Male workforce over 55",
-    "sources": [
-      {
-        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
-        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
-        "date_accessed": 2023,
-        "url": "https://lehd.ces.census.gov/data/"
-      }
-    ],
-    "statement": "{value} of the male workers working in {features.name} are over 55.",
-    "type": "",
-    "unit": "person"
-  },
-  "wac_age_30_to_54_female_perc": {
-    "aggregation_method": "percent",
-    "category": "Employment/Workforce Development",
-    "citations": [],
-    "data_type": "",
-    "equity_category": "",
-    "layer": [],
-    "long_description": "Percent of the female workforce 30 to 54. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
-    "long_name": "Workplace - Female workforce 30 to 54",
+    "long_description": "Percent of the female workforce 30 to 54. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
+    "long_name": "Home - Female workforce 30 to 54",
     "measure_type": "percent",
     "short_description": "Percent of the female workforce 30 to 54",
-    "short_name": "Workplace - Female workforce 30 to 54",
+    "short_name": "Home - Female workforce 30 to 54",
     "sources": [
       {
         "name": "Longitudinal Employer-Household Dynamics (LEHD)",
@@ -1097,22 +1111,26 @@
         "url": "https://lehd.ces.census.gov/data/"
       }
     ],
-    "statement": "{value} of the female workers working in {features.name} are 30 to 54.",
+    "statement": "{value} of the female workers living in {features.name} are 30 to 54.",
     "type": "",
-    "unit": "person"
+    "unit": "person",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/va059_cttrbg_lodes_2010_2019_rac_employment_segments_by_sex.csv.xz"
   },
-  "wac_age_30_to_54_male_perc": {
+  "rac_age_30_to_54_male_perc": {
     "aggregation_method": "percent",
+    "categories": "",
     "category": "Employment/Workforce Development",
     "citations": [],
     "data_type": "",
     "equity_category": "",
     "layer": [],
-    "long_description": "Percent of the male workforce 30 to 54. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
-    "long_name": "Workplace - Male workforce 30 to 54",
+    "long_description": "Percent of the male workforce 30 to 54. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
+    "long_name": "Home - Male workforce 30 to 54",
     "measure_type": "percent",
     "short_description": "Percent of the male workforce 30 to 54",
-    "short_name": "Workplace - Male workforce 30 to 54",
+    "short_name": "Home - Male workforce 30 to 54",
     "sources": [
       {
         "name": "Longitudinal Employer-Household Dynamics (LEHD)",
@@ -1121,12 +1139,607 @@
         "url": "https://lehd.ces.census.gov/data/"
       }
     ],
-    "statement": "{value} of the male workers working in {features.name} are 30 to 54.",
+    "statement": "{value} of the male workers are 30 to 54 living in {features.name}.",
     "type": "",
-    "unit": "person"
+    "unit": "person",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/va059_cttrbg_lodes_2010_2019_rac_employment_segments_by_sex.csv.xz"
+  },
+  "rac_age_55_and_over_female_perc": {
+    "aggregation_method": "percent",
+    "categories": "",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the female workforce over 55. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
+    "long_name": "Home - Female workforce over 55",
+    "measure_type": "percent",
+    "short_description": "Percent of the female workforce over 55",
+    "short_name": "Home - Female workforce over 55",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the female workers living in {features.name} are over 55.",
+    "type": "",
+    "unit": "person",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/va059_cttrbg_lodes_2010_2019_rac_employment_segments_by_sex.csv.xz"
+  },
+  "rac_age_55_and_over_male_perc": {
+    "aggregation_method": "percent",
+    "categories": "",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the male workforce over 55. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
+    "long_name": "Home - Male workforce over 55",
+    "measure_type": "percent",
+    "short_description": "Percent of the male workforce over 55",
+    "short_name": "Home - Male workforce over 55",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the male workers living in {features.name} are over 55.",
+    "type": "",
+    "unit": "person",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/va059_cttrbg_lodes_2010_2019_rac_employment_segments_by_sex.csv.xz"
+  },
+  "rac_earnings_1250_and_under_female_perc": {
+    "aggregation_method": "percent",
+    "categories": "",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the female workforce earning under $1,250 per month. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
+    "long_name": "Home - Female workforce earning under $1,250 per month",
+    "measure_type": "percent",
+    "short_description": "Percent of the female workforce earning under $1,250 per month",
+    "short_name": "Home - Female workforce earning under $1,250 per month",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the female workers living in {features.name} earn under $1,250 per month.",
+    "type": "",
+    "unit": "person",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/va059_cttrbg_lodes_2010_2019_rac_employment_segments_by_sex.csv.xz"
+  },
+  "rac_earnings_1250_and_under_male_perc": {
+    "aggregation_method": "percent",
+    "categories": "",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the male workforce earning under $1,250 per month. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
+    "long_name": "Home - Male workforce earning under $1,250 per month",
+    "measure_type": "percent",
+    "short_description": "Percent of the male workforce earning under $1,250 per month",
+    "short_name": "Home - Male workforce earning under $1,250 per month",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the male workers living in {features.name} earn under $1,250 per month.",
+    "type": "",
+    "unit": "person",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/va059_cttrbg_lodes_2010_2019_rac_employment_segments_by_sex.csv.xz"
+  },
+  "rac_earnings_1251_to_3333_female_perc": {
+    "aggregation_method": "percent",
+    "categories": "",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the female workforce earning $1,250 to 3,333 per month. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
+    "long_name": "Home - Female workforce earning $1,250 to $3,333 per month",
+    "measure_type": "percent",
+    "short_description": "Percent of the female workforce earning $1,250 to 3,333 per month",
+    "short_name": "Home - Female workforce earning $1,250 to $3,333 per month",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the female workers living in {features.name} earn $1,250 to $3,333 per month.",
+    "type": "",
+    "unit": "person",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/va059_cttrbg_lodes_2010_2019_rac_employment_segments_by_sex.csv.xz"
+  },
+  "rac_earnings_1251_to_3333_male_perc": {
+    "aggregation_method": "percent",
+    "categories": "",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the male workforce earning $1,250 to 3,333 per month. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
+    "long_name": "Home - Male workforce earning $1,250 to $3,333 per month",
+    "measure_type": "percent",
+    "short_description": "Percent of the male workforce earning $1,250 to 3,333 per month",
+    "short_name": "Home - Male workforce earning $1,250 to $3,333 per month",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the male workers living in {features.name} earn $1,250 to $3,333 per month.",
+    "type": "",
+    "unit": "person",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/va059_cttrbg_lodes_2010_2019_rac_employment_segments_by_sex.csv.xz"
+  },
+  "rac_earnings_3334_and_over_female_perc": {
+    "aggregation_method": "percent",
+    "categories": "",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the female workforce earning over $3,334 per month. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
+    "long_name": "Home - Female workforce earning over $3,334 per month",
+    "measure_type": "percent",
+    "short_description": "Percent of the female workforce earning over $3,334 per month",
+    "short_name": "Home - Female workforce earning over $3,334 per month",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the female workers living in {features.name} earn over $3,334 per month.",
+    "type": "",
+    "unit": "person",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/va059_cttrbg_lodes_2010_2019_rac_employment_segments_by_sex.csv.xz"
+  },
+  "rac_earnings_3334_and_over_male_perc": {
+    "aggregation_method": "percent",
+    "categories": "",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the male workforce earning over $3,334 per month. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
+    "long_name": "Home - Male workforce earning over $3,334 per month",
+    "measure_type": "percent",
+    "short_description": "Percent of the male workforce earning over $3,334 per month",
+    "short_name": "Home - Male workforce earning over $3,334 per month",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the male workers living in {features.name} earn over $3,334 per month.",
+    "type": "",
+    "unit": "person",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/va059_cttrbg_lodes_2010_2019_rac_employment_segments_by_sex.csv.xz"
+  },
+  "rac_industry_goods_female_perc": {
+    "aggregation_method": "percent",
+    "categories": "",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the female workforce in Goods Producing industry sectors. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
+    "long_name": "Home - Female workforce in Goods Producing industry sectors",
+    "measure_type": "percent",
+    "short_description": "Percent of the female workforce in Goods Producing industry sectors",
+    "short_name": "Home - Female workforce in Goods Producing industry sectors",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the female workers living in {features.name} are in Goods Producing industry sectors .",
+    "type": "",
+    "unit": "person",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/va059_cttrbg_lodes_2010_2019_rac_employment_segments_by_sex.csv.xz"
+  },
+  "rac_industry_goods_male_perc": {
+    "aggregation_method": "percent",
+    "categories": "",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the male workforce in Goods Producing industry sectors. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
+    "long_name": "Home - Male workforce in Goods Producing industry sectors",
+    "measure_type": "percent",
+    "short_description": "Percent of the male workforce in Goods Producing industry sectors",
+    "short_name": "Home - Male workforce in Goods Producing industry sectors",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the male workers living in {features.name} are in Goods Producing industry sectors.",
+    "type": "",
+    "unit": "person",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/va059_cttrbg_lodes_2010_2019_rac_employment_segments_by_sex.csv.xz"
+  },
+  "rac_industry_other_services_female_perc": {
+    "aggregation_method": "percent",
+    "categories": "",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the female workforce in other Service industry sectors. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
+    "long_name": "Home - Female workforce in other Service industry sectors",
+    "measure_type": "percent",
+    "short_description": "Percent of the female workforce in other Service industry sectors",
+    "short_name": "Home - Female workforce in other Service industry sectors",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the female workers living in {features.name} are in other Service industry sectors.",
+    "type": "",
+    "unit": "person",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/va059_cttrbg_lodes_2010_2019_rac_employment_segments_by_sex.csv.xz"
+  },
+  "rac_industry_other_services_male_perc": {
+    "aggregation_method": "percent",
+    "categories": "",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the male workforce in other Service industry sectors. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
+    "long_name": "Home - Male workforce in other Service industry sectors",
+    "measure_type": "percent",
+    "short_description": "Percent of the male workforce in other Service industry sectors",
+    "short_name": "Home - Male workforce in other Service industry sectors",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the male workers living in {features.name} are in other Service industry sectors.",
+    "type": "",
+    "unit": "person",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/va059_cttrbg_lodes_2010_2019_rac_employment_segments_by_sex.csv.xz"
+  },
+  "rac_industry_trade_transporation_utilities_female_perc": {
+    "aggregation_method": "percent",
+    "categories": "",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the female workforce in Trade, Transportation, and Utility industry sectors. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
+    "long_name": "Home - Female workforce in Trade, Transportation, and Utility industry sectors",
+    "measure_type": "percent",
+    "short_description": "Percent of the female workforce in Trade, Transportation, and Utility industry sectors",
+    "short_name": "Home - Female workforce in Trade, Transportation, and Utility industry sectors",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the female workers living in {features.name} are in Trade, Transportation, and Utility industry sectors.",
+    "type": "",
+    "unit": "person",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/va059_cttrbg_lodes_2010_2019_rac_employment_segments_by_sex.csv.xz"
+  },
+  "rac_industry_trade_transporation_utilities_male_perc": {
+    "aggregation_method": "percent",
+    "categories": "",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the male workforce in Trade, Transportation, and Utility industry sectors. Based off the Residence Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by home Census Block.",
+    "long_name": "Home - Male workforce in Trade, Transportation, and Utility industry sectors",
+    "measure_type": "percent",
+    "short_description": "Percent of the male workforce in Trade, Transportation, and Utility industry sectors",
+    "short_name": "Home - Male workforce in Trade, Transportation, and Utility industry sectors",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the male workers living in {features.name} are in Trade, Transportation, and Utility industry sectors.",
+    "type": "",
+    "unit": "person",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/va059_cttrbg_lodes_2010_2019_rac_employment_segments_by_sex.csv.xz"
+  },
+  "race_{variant.name}{category.name}": {
+    "category": "Demographics",
+    "data_type": "{variant}",
+    "unit": "individual",
+    "equity_category": "Status",
+    "aggregation_method": "{variant}",
+    "short_name": "{variant} {category}",
+    "long_name": "{variant.short_description}",
+    "short_description": "{variant}",
+    "long_description": "{variant} 5-year ACS estimates in provided census geolevels. For non-census geolevels (such as zip codes), spatial overlaps are calculated between census block groups {category} Redistribution to non-census geolevels was performed using the redistribute R package.",
+    "statement": "{variant}",
+    "citations": "bii-redist",
+    "sources": [
+      {
+        "name": "American Community Survey",
+        "location": "5-Year estimates, table B01001, via the API",
+        "location_url": "https://www.census.gov/data/developers/data-sets/acs-5year.html",
+        "date_accessed": 2023,
+        "url": "https://www.census.gov/programs-surveys/acs.html"
+      },
+      {
+        "name": "Fairfax County Geospatial Data",
+        "location": "Boundaries > Zip Codes",
+        "location_url": "https://data-fairfaxcountygis.opendata.arcgis.com/datasets/Fairfaxcountygis::zip-codes/about",
+        "date_accessed": 2022,
+        "url": "https://data-fairfaxcountygis.opendata.arcgis.com/"
+      },
+      {
+        "name": "Fairfax County Geospatial Data",
+        "location": "Boundaries > Supervisor Districts",
+        "location_url": "https://data-fairfaxcountygis.opendata.arcgis.com/datasets/Fairfaxcountygis::supervisor-districts-5/about",
+        "date_accessed": 2022,
+        "url": "https://data-fairfaxcountygis.opendata.arcgis.com/"
+      },
+      {
+        "name": "Fairfax County Geospatial Data",
+        "location": "Health & Human Service > Human Services Regions",
+        "location_url": "https://data-fairfaxcountygis.opendata.arcgis.com/datasets/Fairfaxcountygis::human-services-regions/about",
+        "date_accessed": 2022,
+        "url": "https://data-fairfaxcountygis.opendata.arcgis.com/"
+      },
+      {
+        "name": "Arlington County GIS Open Data",
+        "location": "MHUD Polygons",
+        "location_url": "https://gisdata-arlgis.opendata.arcgis.com/datasets/ArlGIS::mhud-polygons/about",
+        "date_accessed": 2023,
+        "url": "https://gisdata-arlgis.opendata.arcgis.com/"
+      },
+      {
+        "name": "Arlington County GIS Open Data",
+        "location": "Civic Association Polygons",
+        "location_url": "https://gisdata-arlgis.opendata.arcgis.com/datasets/ArlGIS::civic-association-polygons-1/about",
+        "date_accessed": 2021,
+        "url": "https://gisdata-arlgis.opendata.arcgis.com/"
+      }
+    ],
+    "categories": {
+      "_parcels": {
+        "default": "parcels",
+        "long_description": "and parcels, then the value of each block group is divided across all living units within each intersecting parcel. Once parcel-level values are assigned, spatial overlaps are calculated between parcels and target regions such that parcel values can be aggregated to each intersecting target region based on proportion of overlap."
+      },
+      "_direct": {
+        "default": "direct",
+        "long_description": "and target regions, then the value of each block group is aggregated/disaggregated to any intersecting target region based on proportion of overlap."
+      }
+    },
+    "variants": {
+      "afr_amer_alone_count": {
+        "default": "The Black population",
+        "data_type": "decimal",
+        "aggregation_method": "arithmetic mean",
+        "short_description": "The Black population.",
+        "long_description": "The Black population.",
+        "statement": "The Black population is {value} in {region_name}."
+      },
+      "native_alone_count": {
+        "default": "The Native population",
+        "data_type": "decimal",
+        "aggregation_method": "arithmetic mean",
+        "short_description": "The Native population.",
+        "long_description": "The Native population.",
+        "statement": "The Native population is {value} in {region_name}."
+      },
+      "AAPI_count": {
+        "default": "The Asian American/Pacific Islander population",
+        "data_type": "decimal",
+        "aggregation_method": "arithmetic mean",
+        "short_description": "The Asian American/Pacific Islander population.",
+        "long_description": "The Asian American/Pacific Islander population.",
+        "statement": "The Asian American/Pacific Islander population is {value} in {region_name}."
+      },
+      "wht_alone_count": {
+        "default": "The White population",
+        "data_type": "decimal",
+        "aggregation_method": "arithmetic mean",
+        "short_description": "The White population.",
+        "long_description": "The White population.",
+        "statement": "The White population is {value} in {region_name}."
+      },
+      "hispanic_or_latino_count": {
+        "default": "The Hispanic/Latino population",
+        "data_type": "decimal",
+        "aggregation_method": "arithmetic mean",
+        "short_description": "The Hispanic/Latino population.",
+        "long_description": "The Hispanic/Latino population.",
+        "statement": "The Hispanic/Latino population is {value} in {region_name}."
+      },
+      "other_count": {
+        "default": "The Other racial population",
+        "data_type": "decimal",
+        "aggregation_method": "arithmetic mean",
+        "short_description": "The Other racial population.",
+        "long_description": "The Other racial population.",
+        "statement": "The Other racial population is {value} in {region_name}."
+      },
+      "two_or_more_count": {
+        "default": "The two or more races population",
+        "data_type": "decimal",
+        "aggregation_method": "arithmetic mean",
+        "short_description": "The two or more races population.",
+        "long_description": "The two or more races population.",
+        "statement": "The two or more races population is {value} in {region_name}."
+      },
+      "total_count": {
+        "default": "Total count of the population",
+        "data_type": "decimal",
+        "aggregation_method": "arithmetic mean",
+        "short_description": "Total count of the population.",
+        "long_description": "Total count of the population.",
+        "statement": "Total count of the population is {value} in {region_name}."
+      },
+      "eth_tot_count": {
+        "default": "Total population ethnique",
+        "data_type": "decimal",
+        "aggregation_method": "arithmetic mean",
+        "short_description": "Total population ethnique.",
+        "long_description": "Total population ethnique.",
+        "statement": "Total population ethnique is {value} in {region_name}."
+      },
+      "afr_amer_alone_percent": {
+        "default": "Black population percentage",
+        "data_type": "decimal",
+        "aggregation_method": "percent",
+        "short_description": "The Black population percent.",
+        "long_description": "The Black population percent.",
+        "statement": "The Black population percent is {value} in {region_name}."
+      },
+      "native_alone_percent": {
+        "default": "The Native population percentage",
+        "data_type": "decimal",
+        "aggregation_method": "percent",
+        "short_description": "The Native population percent.",
+        "long_description": "The Native population percent.",
+        "statement": "The Native population percent is {value} in {region_name}."
+      },
+      "AAPI_percent": {
+        "default": "The Asian American/Pacific Islander population percentage",
+        "data_type": "decimal",
+        "aggregation_method": "percent",
+        "short_description": "The Asian American/Pacific Islander population percent.",
+        "long_description": "The Asian American/Pacific Islander population percent.",
+        "statement": "The Asian American/Pacific Islander population percent is {value} in {region_name}."
+      },
+      "wht_alone_percent": {
+        "default": "The White population percentage",
+        "data_type": "decimal",
+        "aggregation_method": "percent",
+        "short_description": "The White population percent.",
+        "long_description": "The White population percent.",
+        "statement": "The White population percent is {value} in {region_name}."
+      },
+      "hispanic_or_latino_percent": {
+        "default": "The Hispanic/Latino population percentage",
+        "data_type": "decimal",
+        "aggregation_method": "percent",
+        "short_description": "The Hispanic/Latino population percent.",
+        "long_description": "The Hispanic/Latino population percent.",
+        "statement": "The Hispanic/Latino population percent is {value} in {region_name}."
+      },
+      "other_percent": {
+        "default": "The Other racial population percentage",
+        "data_type": "decimal",
+        "aggregation_method": "percent",
+        "short_description": "The Other racial population percent.",
+        "long_description": "The Other racial population percent.",
+        "statement": "The Other racial population percent is {value} in {region_name}."
+      },
+      "two_or_more_percent": {
+        "default": "The two or more races population percentage",
+        "data_type": "decimal",
+        "aggregation_method": "percent",
+        "short_description": "The two or more races population percent.",
+        "long_description": "The two or more races population percent.",
+        "statement": "The two or more races population percent is {value} in {region_name}."
+      }
+    },
+    "source_file": "https://github.com/uva-bi-sdad/sdc.demographics/blob/main/Race/code/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.demographics/blob/main/Race/data/distribution/va_hsrsdpdzccttrbg_sdad_2009_2021_race_demographics.csv.xz"
   },
   "wac_age_29_and_under_female_perc": {
     "aggregation_method": "percent",
+    "categories": "",
     "category": "Employment/Workforce Development",
     "citations": [],
     "data_type": "",
@@ -1147,10 +1760,14 @@
     ],
     "statement": "{value} of the female workers working in {features.name} are under 29.",
     "type": "",
-    "unit": "person"
+    "unit": "person",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/va059_cttrbg_lodes_2010_2019_wac_employment_segments_by_sex.csv.xz"
   },
   "wac_age_29_and_under_male_perc": {
     "aggregation_method": "percent",
+    "categories": "",
     "category": "Employment/Workforce Development",
     "citations": [],
     "data_type": "",
@@ -1171,6 +1788,793 @@
     ],
     "statement": "{value} of the male workers working in {features.name} are under 29.",
     "type": "",
-    "unit": "person"
+    "unit": "person",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/va059_cttrbg_lodes_2010_2019_wac_employment_segments_by_sex.csv.xz"
+  },
+  "wac_age_30_to_54_female_perc": {
+    "aggregation_method": "percent",
+    "categories": "",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the female workforce 30 to 54. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
+    "long_name": "Workplace - Female workforce 30 to 54",
+    "measure_type": "percent",
+    "short_description": "Percent of the female workforce 30 to 54",
+    "short_name": "Workplace - Female workforce 30 to 54",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the female workers working in {features.name} are 30 to 54.",
+    "type": "",
+    "unit": "person",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/va059_cttrbg_lodes_2010_2019_wac_employment_segments_by_sex.csv.xz"
+  },
+  "wac_age_30_to_54_male_perc": {
+    "aggregation_method": "percent",
+    "categories": "",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the male workforce 30 to 54. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
+    "long_name": "Workplace - Male workforce 30 to 54",
+    "measure_type": "percent",
+    "short_description": "Percent of the male workforce 30 to 54",
+    "short_name": "Workplace - Male workforce 30 to 54",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the male workers working in {features.name} are 30 to 54.",
+    "type": "",
+    "unit": "person",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/va059_cttrbg_lodes_2010_2019_wac_employment_segments_by_sex.csv.xz"
+  },
+  "wac_age_55_and_over_female_perc": {
+    "aggregation_method": "percent",
+    "categories": "",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the female workforce over 55. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
+    "long_name": "Workplace - Female workforce over 55",
+    "measure_type": "percent",
+    "short_description": "Percent of the female workforce over 55",
+    "short_name": "Workplace - Female workforce over 55",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the female workers working in {features.name} are over 55.",
+    "type": "",
+    "unit": "person",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/va059_cttrbg_lodes_2010_2019_wac_employment_segments_by_sex.csv.xz"
+  },
+  "wac_age_55_and_over_male_perc": {
+    "aggregation_method": "percent",
+    "categories": "",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the male workforce over 55. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
+    "long_name": "Workplace - Male workforce over 55",
+    "measure_type": "percent",
+    "short_description": "Percent of the male workforce over 55",
+    "short_name": "Workplace - Male workforce over 55",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the male workers working in {features.name} are over 55.",
+    "type": "",
+    "unit": "person",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/va059_cttrbg_lodes_2010_2019_wac_employment_segments_by_sex.csv.xz"
+  },
+  "wac_earnings_1250_and_under_female_perc": {
+    "aggregation_method": "percent",
+    "categories": "",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the female workforce earning under $1,250 per month. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
+    "long_name": "Workplace - Female workforce earning under $1,250 per month",
+    "measure_type": "percent",
+    "short_description": "Percent of the female workforce earning under $1,250 per month",
+    "short_name": "Workplace - Female workforce earning under $1,250 per month",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the female workers working  in {features.name} earn under $1,250 per month.",
+    "type": "",
+    "unit": "person",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/va059_cttrbg_lodes_2010_2019_wac_employment_segments_by_sex.csv.xz"
+  },
+  "wac_earnings_1250_and_under_male_perc": {
+    "aggregation_method": "percent",
+    "categories": "",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the male workforce earning under $1,250 per month. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
+    "long_name": "Workplace - Male workforce earning under $1,250 per month",
+    "measure_type": "percent",
+    "short_description": "Percent of the male workforce earning under $1,250 per month",
+    "short_name": "Workplace - Male workforce earning under $1,250 per month",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the male workers working in {features.name} earn under $1,250 per month.",
+    "type": "",
+    "unit": "person",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/va059_cttrbg_lodes_2010_2019_wac_employment_segments_by_sex.csv.xz"
+  },
+  "wac_earnings_1251_to_3333_female_perc": {
+    "aggregation_method": "percent",
+    "categories": "",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the female workforce earning $1,250 to 3,333 per month. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
+    "long_name": "Workplace - Female workforce earning $1,250 to $3,333 per month",
+    "measure_type": "percent",
+    "short_description": "Percent of the female workforce earning $1,250 to 3,3330 per month",
+    "short_name": "Workplace - Female workforce earning $1,250 to $3,333 per month",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the female workers working in {features.name} earn $1,250 to $3,333 per month.",
+    "type": "",
+    "unit": "person",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/va059_cttrbg_lodes_2010_2019_wac_employment_segments_by_sex.csv.xz"
+  },
+  "wac_earnings_1251_to_3333_male_perc": {
+    "aggregation_method": "percent",
+    "categories": "",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the male workforce earning $1,250 to 3,333 per month. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
+    "long_name": "Workplace - Male workforce earning $1,250 to $3,333 per month",
+    "measure_type": "percent",
+    "short_description": "Percent of the male workforce earning $1,250 to 3,3330 per month",
+    "short_name": "Workplace - Male workforce earning $1,250 to $3,333 per month",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the male workers working in {features.name} earn $1,250 to $3,333 per month.",
+    "type": "",
+    "unit": "person",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/va059_cttrbg_lodes_2010_2019_wac_employment_segments_by_sex.csv.xz"
+  },
+  "wac_earnings_3334_and_over_female_perc": {
+    "aggregation_method": "percent",
+    "categories": "",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the female workforce earning over $3,334 per month. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
+    "long_name": "Workplace - Female workforce earning over $3,334 per month",
+    "measure_type": "percent",
+    "short_description": "Percent of the female workforce earning over $3,334 per month",
+    "short_name": "Workplace - Female workforce earning over $3,334 per month",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the female workers working in {features.name} earn over $3,334 per month.",
+    "type": "",
+    "unit": "person",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/va059_cttrbg_lodes_2010_2019_wac_employment_segments_by_sex.csv.xz"
+  },
+  "wac_earnings_3334_and_over_male_perc": {
+    "aggregation_method": "percent",
+    "categories": "",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the male workforce earning over $3,334 per month. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
+    "long_name": "Workplace - Male workforce earning over $3,334 per month",
+    "measure_type": "percent",
+    "short_description": "Percent of the male workforce earning over $3,334 per month",
+    "short_name": "Workplace - Male workforce earning over $3,334 per month",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the male workers working in {features.name} earn over $3,334 per month.",
+    "type": "",
+    "unit": "person",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/va059_cttrbg_lodes_2010_2019_wac_employment_segments_by_sex.csv.xz"
+  },
+  "wac_industry_goods_female_perc": {
+    "aggregation_method": "percent",
+    "categories": "",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the female workforce in Goods Producing industry sectors. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
+    "long_name": "Workplace - Female workforce in Goods Producing industry sectors",
+    "measure_type": "percent",
+    "short_description": "Percent of the female workforce in Goods Producing industry sectors",
+    "short_name": "Workplace - Female workforce in Goods Producing industry sectors",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the female workers working in {features.name} are in Goods Producing industry sectors.",
+    "type": "",
+    "unit": "person",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/va059_cttrbg_lodes_2010_2019_wac_employment_segments_by_sex.csv.xz"
+  },
+  "wac_industry_goods_male_perc": {
+    "aggregation_method": "percent",
+    "categories": "",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the male workforce in Goods Producing industry sectors. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
+    "long_name": "Workplace - Male workforce in Goods Producing industry sectors",
+    "measure_type": "percent",
+    "short_description": "Percent of the male workforce in Goods Producing industry sectors",
+    "short_name": "Workplace - Male workforce in Goods Producing industry sectors",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the male workers working in {features.name} are in Goods Producing industry sectors.",
+    "type": "",
+    "unit": "person",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/va059_cttrbg_lodes_2010_2019_wac_employment_segments_by_sex.csv.xz"
+  },
+  "wac_industry_other_services_female_perc": {
+    "aggregation_method": "percent",
+    "categories": "",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the female workforce in other Service industry sectors. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
+    "long_name": "Workplace - Female workforce in other Service industry sectors",
+    "measure_type": "percent",
+    "short_description": "Percent of the female workforce in other Service industry sectors",
+    "short_name": "Workplace - Female workforce in other Service industry sectors",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the female workers working in {features.name} are in other Service industry sectors.",
+    "type": "",
+    "unit": "person",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/va059_cttrbg_lodes_2010_2019_wac_employment_segments_by_sex.csv.xz"
+  },
+  "wac_industry_other_services_male_perc": {
+    "aggregation_method": "percent",
+    "categories": "",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the male workforce in other Service industry sectors. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
+    "long_name": "Workplace - Male workforce in other Service industry sectors",
+    "measure_type": "percent",
+    "short_description": "Percent of the male workforce in other Service industry sectors",
+    "short_name": "Workplace - Male workforce in other Service industry sectors",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the male workers working in {features.name} are in other Service industry sectors.",
+    "type": "",
+    "unit": "person",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/va059_cttrbg_lodes_2010_2019_wac_employment_segments_by_sex.csv.xz"
+  },
+  "wac_industry_trade_transporation_utilities_female_perc": {
+    "aggregation_method": "percent",
+    "categories": "",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the female workforce in Trade, Transportation, and Utility industry sectors. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
+    "long_name": "Workplace - Female workforce in Trade, Transportation, and Utility industry sectors",
+    "measure_type": "percent",
+    "short_description": "Percent of the female workforce in Trade, Transportation, and Utility industry sectors",
+    "short_name": "Workplace - Female workforce in Trade, Transportation, and Utility industry sectors",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the female workers working in {features.name} are in Trade, Transportation, and Utility industry sectors.",
+    "type": "",
+    "unit": "person",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/va059_cttrbg_lodes_2010_2019_wac_employment_segments_by_sex.csv.xz"
+  },
+  "wac_industry_trade_transporation_utilities_male_perc": {
+    "aggregation_method": "percent",
+    "categories": "",
+    "category": "Employment/Workforce Development",
+    "citations": [],
+    "data_type": "",
+    "equity_category": "",
+    "layer": [],
+    "long_description": "Percent of the male workforce in Trade, Transportation, and Utility industry sectors. Based off the Workforce Area Characteristics (WAC) data from Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES). Jobs in this case are totaled by work Census Block.",
+    "long_name": "Workplace - Male workforce in Trade, Transportation, and Utility industry sectors",
+    "measure_type": "percent",
+    "short_description": "Percent of the male workforce in Trade, Transportation, and Utility industry sectors",
+    "short_name": "Workplace - Male workforce in Trade, Transportation, and Utility industry sectors",
+    "sources": [
+      {
+        "name": "Longitudinal Employer-Household Dynamics (LEHD)",
+        "location": "Origin-Destination Employment Statistics (LODES), Workplace Area Characteristics (WAC)",
+        "date_accessed": 2023,
+        "url": "https://lehd.ces.census.gov/data/"
+      }
+    ],
+    "statement": "{value} of the male workers working in {features.name} are in Trade, Transportation, and Utility industry sectors.",
+    "type": "",
+    "unit": "person",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.business_climate/blob/main/Employment/Worker_diversity/data/distribution/va059_cttrbg_lodes_2010_2019_wac_employment_segments_by_sex.csv.xz"
+  },
+  "wht_boys_pov_cnt": {
+    "aggregation_method": "",
+    "categories": "",
+    "category": "",
+    "citations": "",
+    "data_type": "",
+    "equity_category": "",
+    "layer": "",
+    "long_description": "",
+    "long_name": "",
+    "measure_type": "",
+    "short_description": "",
+    "short_name": "wht_boys_pov_cnt",
+    "sources": "",
+    "statement": "",
+    "type": "",
+    "unit": "",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/ncr_tr_acs_2021_poverty_children.csv.xz"
+  },
+  "wht_boys_pov_pct": {
+    "aggregation_method": "",
+    "categories": "",
+    "category": "",
+    "citations": "",
+    "data_type": "",
+    "equity_category": "",
+    "layer": "",
+    "long_description": "",
+    "long_name": "",
+    "measure_type": "",
+    "short_description": "",
+    "short_name": "wht_boys_pov_pct",
+    "sources": "",
+    "statement": "",
+    "type": "",
+    "unit": "",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/ncr_tr_acs_2021_poverty_children.csv.xz"
+  },
+  "wht_girls_pov_cnt": {
+    "aggregation_method": "",
+    "categories": "",
+    "category": "",
+    "citations": "",
+    "data_type": "",
+    "equity_category": "",
+    "layer": "",
+    "long_description": "",
+    "long_name": "",
+    "measure_type": "",
+    "short_description": "",
+    "short_name": "wht_girls_pov_cnt",
+    "sources": "",
+    "statement": "",
+    "type": "",
+    "unit": "",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/ncr_tr_acs_2021_poverty_children.csv.xz"
+  },
+  "wht_girls_pov_pct": {
+    "aggregation_method": "",
+    "categories": "",
+    "category": "",
+    "citations": "",
+    "data_type": "",
+    "equity_category": "",
+    "layer": "",
+    "long_description": "",
+    "long_name": "",
+    "measure_type": "",
+    "short_description": "",
+    "short_name": "wht_girls_pov_pct",
+    "sources": "",
+    "statement": "",
+    "type": "",
+    "unit": "",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/ncr_tr_acs_2021_poverty_children.csv.xz"
+  },
+  "wht_men_pov_cnt": {
+    "aggregation_method": "",
+    "categories": "",
+    "category": "",
+    "citations": "",
+    "data_type": "",
+    "equity_category": "",
+    "layer": "",
+    "long_description": "",
+    "long_name": "",
+    "measure_type": "",
+    "short_description": "",
+    "short_name": "wht_men_pov_cnt",
+    "sources": "",
+    "statement": "",
+    "type": "",
+    "unit": "",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/ncr_tr_acs_2021_poverty_adults.csv.xz"
+  },
+  "wht_men_pov_pct": {
+    "aggregation_method": "",
+    "categories": "",
+    "category": "",
+    "citations": "",
+    "data_type": "",
+    "equity_category": "",
+    "layer": "",
+    "long_description": "",
+    "long_name": "",
+    "measure_type": "",
+    "short_description": "",
+    "short_name": "wht_men_pov_pct",
+    "sources": "",
+    "statement": "",
+    "type": "",
+    "unit": "",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/ncr_tr_acs_2021_poverty_adults.csv.xz"
+  },
+  "wht_nonhis_boys_pov_cnt": {
+    "aggregation_method": "",
+    "categories": "",
+    "category": "",
+    "citations": "",
+    "data_type": "",
+    "equity_category": "",
+    "layer": "",
+    "long_description": "",
+    "long_name": "",
+    "measure_type": "",
+    "short_description": "",
+    "short_name": "wht_nonhis_boys_pov_cnt",
+    "sources": "",
+    "statement": "",
+    "type": "",
+    "unit": "",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/ncr_tr_acs_2021_poverty_children.csv.xz"
+  },
+  "wht_nonhis_boys_pov_pct": {
+    "aggregation_method": "",
+    "categories": "",
+    "category": "",
+    "citations": "",
+    "data_type": "",
+    "equity_category": "",
+    "layer": "",
+    "long_description": "",
+    "long_name": "",
+    "measure_type": "",
+    "short_description": "",
+    "short_name": "wht_nonhis_boys_pov_pct",
+    "sources": "",
+    "statement": "",
+    "type": "",
+    "unit": "",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/ncr_tr_acs_2021_poverty_children.csv.xz"
+  },
+  "wht_nonhis_girls_pov_cnt": {
+    "aggregation_method": "",
+    "categories": "",
+    "category": "",
+    "citations": "",
+    "data_type": "",
+    "equity_category": "",
+    "layer": "",
+    "long_description": "",
+    "long_name": "",
+    "measure_type": "",
+    "short_description": "",
+    "short_name": "wht_nonhis_girls_pov_cnt",
+    "sources": "",
+    "statement": "",
+    "type": "",
+    "unit": "",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/ncr_tr_acs_2021_poverty_children.csv.xz"
+  },
+  "wht_nonhis_girls_pov_pct": {
+    "aggregation_method": "",
+    "categories": "",
+    "category": "",
+    "citations": "",
+    "data_type": "",
+    "equity_category": "",
+    "layer": "",
+    "long_description": "",
+    "long_name": "",
+    "measure_type": "",
+    "short_description": "",
+    "short_name": "wht_nonhis_girls_pov_pct",
+    "sources": "",
+    "statement": "",
+    "type": "",
+    "unit": "",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/ncr_tr_acs_2021_poverty_children.csv.xz"
+  },
+  "wht_nonhis_men_pov_cnt": {
+    "aggregation_method": "",
+    "categories": "",
+    "category": "",
+    "citations": "",
+    "data_type": "",
+    "equity_category": "",
+    "layer": "",
+    "long_description": "",
+    "long_name": "",
+    "measure_type": "",
+    "short_description": "",
+    "short_name": "wht_nonhis_men_pov_cnt",
+    "sources": "",
+    "statement": "",
+    "type": "",
+    "unit": "",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/ncr_tr_acs_2021_poverty_adults.csv.xz"
+  },
+  "wht_nonhis_men_pov_pct": {
+    "aggregation_method": "",
+    "categories": "",
+    "category": "",
+    "citations": "",
+    "data_type": "",
+    "equity_category": "",
+    "layer": "",
+    "long_description": "",
+    "long_name": "",
+    "measure_type": "",
+    "short_description": "",
+    "short_name": "wht_nonhis_men_pov_pct",
+    "sources": "",
+    "statement": "",
+    "type": "",
+    "unit": "",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/ncr_tr_acs_2021_poverty_adults.csv.xz"
+  },
+  "wht_nonhis_women_pov_cnt": {
+    "aggregation_method": "",
+    "categories": "",
+    "category": "",
+    "citations": "",
+    "data_type": "",
+    "equity_category": "",
+    "layer": "",
+    "long_description": "",
+    "long_name": "",
+    "measure_type": "",
+    "short_description": "",
+    "short_name": "wht_nonhis_women_pov_cnt",
+    "sources": "",
+    "statement": "",
+    "type": "",
+    "unit": "",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/ncr_tr_acs_2021_poverty_adults.csv.xz"
+  },
+  "wht_nonhis_women_pov_pct": {
+    "aggregation_method": "",
+    "categories": "",
+    "category": "",
+    "citations": "",
+    "data_type": "",
+    "equity_category": "",
+    "layer": "",
+    "long_description": "",
+    "long_name": "",
+    "measure_type": "",
+    "short_description": "",
+    "short_name": "wht_nonhis_women_pov_pct",
+    "sources": "",
+    "statement": "",
+    "type": "",
+    "unit": "",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/ncr_tr_acs_2021_poverty_adults.csv.xz"
+  },
+  "wht_women_pov_cnt": {
+    "aggregation_method": "",
+    "categories": "",
+    "category": "",
+    "citations": "",
+    "data_type": "",
+    "equity_category": "",
+    "layer": "",
+    "long_description": "",
+    "long_name": "",
+    "measure_type": "",
+    "short_description": "",
+    "short_name": "wht_women_pov_cnt",
+    "sources": "",
+    "statement": "",
+    "type": "",
+    "unit": "",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/ncr_tr_acs_2021_poverty_adults.csv.xz"
+  },
+  "wht_women_pov_pct": {
+    "aggregation_method": "",
+    "categories": "",
+    "category": "",
+    "citations": "",
+    "data_type": "",
+    "equity_category": "",
+    "layer": "",
+    "long_description": "",
+    "long_name": "",
+    "measure_type": "",
+    "short_description": "",
+    "short_name": "wht_women_pov_pct",
+    "sources": "",
+    "statement": "",
+    "type": "",
+    "unit": "",
+    "variants": "",
+    "source_file": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/measure_info.json",
+    "origin": "https://github.com/uva-bi-sdad/sdc.financial_well_being/blob/main/Poverty/data/distribution/ncr_tr_acs_2021_poverty_adults.csv.xz"
   }
 }
