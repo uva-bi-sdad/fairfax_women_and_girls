@@ -60,14 +60,14 @@
   "uva-bi-sdad/sdc.financial_well_being": {
     "files": {
       "Poverty/data/distribution/ncr_tr_acs_2021_poverty_children.csv.xz": {
-        "size": 118804,
-        "sha": "4a57da17083938f0ccccbb35faa3ccd696ba4dd5",
-        "md5": "729d21c28bc83580abdb6bfb0b88bcbd"
+        "size": 123652,
+        "sha": "64c4c16602bf58adc96634177d31242fa8ce5e42",
+        "md5": "992aed70a26a9e51f0ea00ba4c8ce67f"
       },
       "Poverty/data/distribution/ncr_tr_acs_2021_poverty_adults.csv.xz": {
-        "size": 177372,
-        "sha": "f3e7cb15c68c21a50746f322051c5706c48657b1",
-        "md5": "c764be0c2bf03f7b577770d431fa25e3"
+        "size": 176992,
+        "sha": "c0ebd37a23dc88536c0a029d4a41d59ac89dc2dd",
+        "md5": "4dfa59de2a56341d38dd26bbce59c31c"
       },
       "Pay and Benefits/Household Income/data/distribution/va_cttrbg_2015_2019_median_household_income.csv.xz": {
         "size": 274360,
